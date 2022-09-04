@@ -6,12 +6,12 @@ $(document).ready( function () {
     language: {
     "decimal": "",
     "emptyTable": "No hay información",
-    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+    "info": "Pagina _PAGE_ De _PAGES_",
+    "infoEmpty": "Mostrando 0 to 0 of 0 Resultados",
+    "infoFiltered": "(Filtrado de _MAX_ total Resultados)",
     "infoPostFix": "",
     "thousands": ",",
-    "lengthMenu": "Mostrar _MENU_ Entradas",
+    "lengthMenu": "Mostrar : _MENU_ Resultados",
     "loadingRecords": "Cargando...",
     "processing": "Procesando...",
     "search": "Buscar:",
@@ -34,18 +34,18 @@ var title = $(this).text();
 $(this).html(title+' <input type="text" class="form-control ph-center" placeholder="Buscar ' + title + '" />');
 });
 
-var table = $('#myTable').DataTable({
-"scrollX": true,
-"pagingType": "numbers",
-"processing": true,
-"serverSide": true,
-"ajax": "server.php",
-order: [[2, 'asc']],
-columnDefs: [{
-targets: "_all",
-orderable: false
-}]
-});
+// var table = $('#myTable').DataTable({
+// // "scrollX": true,
+// // "pagingType": "numbers",
+// // "processing": true,
+// // "serverSide": true,
+// // "ajax": "server.php",
+// // order: [[2, 'asc']],
+// // columnDefs: [{
+// // targets: "_all",
+// // orderable: false
+// // }]
+// });
 
 table.columns().every(function () {
 var table = this;

@@ -41,7 +41,7 @@
                         <br>
                         <div class="row" style="justify-content: center;">
                           <div class="col-3" style="text-align: center;" >
-                            <a href="{{ route('ambientes.index') }}" style="background-color: #BC2B2B; color:white"  class="btn"> Volver</button> </a>
+                            <a onClick="history.go(-1);" style="background-color: #BC2B2B; color:white"  class="btn"> Volver</button> </a>
                           </div>
 
                           <div class="col-3" style="text-align: center;" >
