@@ -79,10 +79,7 @@
                             </a>
                             <div class="collapse" id="collElemento" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="{{ route('elementos.index') }}" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Gestionar Elementos
-                                        <div class="sb-sidenav-collapse-arrow"></div>
-                                    </a>
+                                    <a class="nav-link" href="{{ route('elementos.index') }}">Gestionar Elementos</a>
                                 </nav>
                             </div>
 
