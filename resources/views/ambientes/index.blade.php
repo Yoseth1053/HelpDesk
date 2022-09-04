@@ -1,14 +1,16 @@
 @include('layouts.app')
-<div class="card-header">
-    <h1 class="mt-4"><i class="fas fa-landmark"></i> Ambientes</h1>
-</div>
+<br>
+<div class="card-header" style="justify-content: center; background-color:#188755; color:white;">
+                      <h1 style="text-align: center;"><i class="fas fa-landmark"></i><b> <font face="nirvana">Ambientes</font></b> </h1>
+                    </div>
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="p-2">
             <div class="flex justify-end">
-                <a href="{{ route('ambientes.create') }}">
+            <a href="{{ route('ambientes.create') }}" class="btn btn-success"> Nuevo Ambiente</button> </a>
+                <!-- <a href="">
                     <button>Crear</button>
-                </a>
+                </a> -->
             </div>
         </div>
     </div>
