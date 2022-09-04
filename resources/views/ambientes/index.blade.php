@@ -16,20 +16,29 @@
     </div>
     
     <div class="card-body">
-        <table id="datatablesSimple">
-            <thead>
+
+    <table id="myTable" class="display" cellspacing="0" width="100%">
+    <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Ubicacion</th>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Ubicacion</th>
                     <!-- <th>Estado</th> -->
-                    <th>Opciones</th>
+                    <th class="text-center">Opciones</th>
                 </tr>
             </thead>
-            
-            <tbody>
-                @foreach($ambientes as $ambiente)
-                <tr class="border-b">
+<tfoot>
+<tr>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Ubicacion</th>
+                    <!-- <th>Estado</th> -->
+                    <th class="text-center">Opciones</th>
+                </tr>
+</tfoot>
+<tbody>
+@foreach($ambientes as $ambiente)
+                <tr class="border-b" style="text-align: center;">
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {{$ambiente->id}}
                     </td>
@@ -56,10 +65,9 @@
                     </td>
                 </tr>
                 @endforeach
+</tbody>
+</table>
 
-            </tbody>
-            
-        </table>
     </div>
     
 </div>

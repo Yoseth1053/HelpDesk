@@ -1,3 +1,9 @@
+.ph-center::-webkit-input-placeholder {
+    text-align: center;
+    /* line-height: 100px; Centrado vertical */
+}
+
+
 .dropbtn {
     background-color: #192939;
     color: rgb(255, 255, 255);
