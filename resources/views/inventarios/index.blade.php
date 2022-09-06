@@ -1,89 +1,85 @@
-<x-app-layout>
-<section style=" display: flex;
-  justify-content: center;">
-
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Inventario') }}
-        </h2>
-    </x-slot>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="p-2">
-                <div class="flex justify-end">
-                    <a href="{{ route('inventarios.create') }}">
-                        <x-jet-button>Crear</x-jet-button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="flex flex-col">
-                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="overflow-hidden">
-                                <table class="min-w-full">
-                                    <thead class="border-b">
-                                        <tr>
-                                            <th scope="col"
-                                                class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                                Id
-                                            </th>
-                                            <th scope="col"
-                                                class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                                Elemento
-                                            </th>
-                                            <th scope="col"
-                                                class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                                Cantidad
-                                            </th>
-                                            <th scope="col"
-                                                class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                                Ambiente
-                                            </th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($inventarios as $inventario)
-                                        <tr class="border-b">
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            {{$inventario->id}}
-                                            </td>
-                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            {{$inventario->elemento->nombre}}
-                                            </td>
-                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                             {{$inventario->cantidad}}
-                                            </td>
-                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                             {{$inventario->ambiente->nombre}}
-                                            </td>
-                                            
-                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                <a href="{{route('inventarios.show',$inventario)}}">
-                                                    <x-jet-button>Ver</x-jet-button>
-                                                </a>
-                                                <a href="{{route('inventarios.edit',$inventario)}}">
-                                                    <x-jet-button>Editar</x-jet-button>
-                                                </a>
-                                                <form action="{{route('inventarios.destroy',$inventario)}}" method="post">
-                                                    @method("DELETE")
-                                                    @csrf
-                                                    <x-jet-button>Eliminar</x-jet-button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        @endforeach                                       
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+@include('layouts.app')
+<br>
+<div class="card-header" style="justify-content: center; background-color:#33A2C5; color:white;">
+    <h1 style="text-align: center;"><i class="fa fa-window-restore"></i><b>
+            <font face="nirvana">Inventarios</font>
+        </b> </h1>
+</div>
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="p-2">
+            <div class="flex justify-end">
+                <a style="color: white ; background-color:#33A2C5;" href="{{ route('inventarios.create') }}" class="btn"> Nuevo Inventario</button> </a>
+                <!-- <a href="">
+                    <button>Crear</button>
+                </a> -->
             </div>
         </div>
     </div>
-    </section>
-   </x-app-layout>
+
+    <div class="card-body">
+
+        <table id="myTable" class="display" cellspacing="0" width="100%">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Ambiente</th>
+                    <th class="text-center">Elemento</th>
+                    <th class="text-center">Cantidad</th>
+                
+                    <!-- <th>Estado</th> -->
+                    <th class="text-center">Opciones</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Ambiente</th>
+                    <th class="text-center">Elemento</th>
+                    <th class="text-center">Cantidad</th>
+                    
+                    <!-- <th>Estado</th> -->
+                    <th class="text-center">Opciones</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach($inventarios as $inventario)
+                <tr class="border-b" style="text-align: center;">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {{$inventario->id}}
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {{$inventario->ambiente->nombre}}
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {{$inventario->elemento->nombre}}
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                     {{$inventario->cantidad}}
+                    </td>
+
+                    <td>
+                        <div class="dropdown">
+                            <button type="submit" class="dropbtn"><i class="fas fa-list-alt"></i><b> Opciones</b></button>
+                            <div class="dropdown-content">
+                                <a class="dropdown-item" href="{{route('inventarios.show',$inventario)}}" style="color:green"><i class="fas fa-binoculars" style="color:green"></i><b> Ver</b> </a>
+                                <a class="dropdown-item" href="{{route('inventarios.edit',$inventario)}}" style="color:#157ECE"><i class="fas fa-edit" style="color:#157ECE"></i><b> Editar</b></a>
+                                @if ($inventario->estado == 1)
+                                <a class="dropdown-item" href="{{route('inventarios.show',$inventario)}}" style="color:#C21F1F"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Desactivar</b></a>
+                                @else
+                                <a class="dropdown-item" href="{{route('inventarios.show',$inventario)}}"><i class="fas fa-list-alt"></i><b> Activar</b></a>
+                                @endif
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+@include('layouts.footer')

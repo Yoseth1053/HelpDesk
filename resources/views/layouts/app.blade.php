@@ -92,10 +92,7 @@
                             </a>
                             <div class="collapse" id="collEstados" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="{{ route('estados.index') }}" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Gestionar Estados
-                                        <div class="sb-sidenav-collapse-arrow"></div>
-                                    </a>
+                                   <a class="nav-link" href="{{ route('estados.index') }}">Gestionar Estados</a>
                                 </nav>
                             </div>
 
@@ -110,10 +107,7 @@
                             </a>
                             <div class="collapse" id="collIncidentes" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="{{ route('incidentes.index') }}" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Gestionar Incidentes
-                                        <div class="sb-sidenav-collapse-arrow"></div>
-                                    </a>
+                                   <a class="nav-link" href="{{ route('incidentes.index') }}">Gestionar Incidentes</a>
                                 </nav>
                             </div>
 
@@ -125,17 +119,14 @@
                             </a>
                             <div class="collapse" id="collInventario" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="{{ route('inventarios.index') }}" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Gestionar Inventario
-                                        <div class="sb-sidenav-collapse-arrow"></div>
-                                    </a>
+                                <a class="nav-link" href="{{ route('inventarios.index') }}">Gestionar Inventarios</a>
                                 </nav>
                             </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <div class="small">Servicio Nacional De Aprendizaje:</div>
+                        SENA
                     </div>
                 </nav>
             </div>

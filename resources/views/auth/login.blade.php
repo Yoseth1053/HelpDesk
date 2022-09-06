@@ -172,7 +172,7 @@ label:hover ~ input[type=password] {
             </div>
   </div>
   <p class="p-container">
-    <span>Restableser Contraseña ?</span>
+    <span>Restableser Contraseña</span>
     <input type="submit" name="go" id="go" value="Ingresar">
   </p>
 </form>
