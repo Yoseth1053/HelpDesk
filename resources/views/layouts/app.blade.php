@@ -61,7 +61,7 @@
 
                             <!-- Ambientes -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collAmbiente" aria-expanded="false" aria-controls="collAmbiente">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-landmark" style="color:#095F71;" ></i></i></div>
                                 Ambientes
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -73,7 +73,7 @@
 
                             <!-- Elementos -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collElemento" aria-expanded="false" aria-controls="collElemento">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open" style="color:#095F71;"></i></div>
                                 Elementos
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -86,7 +86,7 @@
                             <!-- Elementos -->
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collEstados" aria-expanded="false" aria-controls="collEstados">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-swatchbook" style="color:#095F71;"></i></div>
                                 Estados
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -101,7 +101,7 @@
 
                             <!-- Incidentes -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collIncidentes" aria-expanded="false" aria-controls="collIncidentes">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open" style="color:#095F71;" ></i></div>
                                 Incidentes
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -113,7 +113,7 @@
 
                             <!-- Inventario -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collInventario" aria-expanded="false" aria-controls="collInventario">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open" style="color:#095F71;" ></i></div>
                                 Inventario
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>

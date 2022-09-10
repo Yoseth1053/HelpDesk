@@ -3,11 +3,11 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm😛x-6 lg😛x-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <form action="{{ route('elementos.store') }}" method="post">
+                <form action="{{ route('inventarios.store') }}" method="post">
                 @csrf
                     <br>
                     <div class="card-header" style="justify-content: center; background-color:#33A2C5; color:white;">
-                      <h1 style="text-align: center;"><i class="fa fa-window-restore"></i><b> <font face="nirvana">Crear Inventario</font></b> </h1>
+                      <h1 style="text-align: center;"><i class="fas fa-file-alt"></i><b> <font face="nirvana">Crear Inventario</font></b> </h1>
                     </div>
                     <br>
 
@@ -18,7 +18,7 @@
                         <div class="col-3">
                           <div class="form-group" style="text-align: center;">
                             <label for="" ><b>Elemento</b> </label>
-                            <select class="form-control" name="" id="">
+                            <select class="form-control" name="elemento_id" id="elemento_id">
                               @foreach($elementos as $elm)
                               <option  value="{{$elm->id}}">{{$elm->nombre}}</option>
                               @endforeach
@@ -28,7 +28,7 @@
                         <div class="col-3">
                           <div class="form-group " style="text-align: center;">
                             <label  for="" ><b>Ambiente </b> </label>
-                            <select class="form-control"  name="" id="">
+                            <select class="form-control"  name="ambiente_id" id="ambiente_id">
                               @foreach($ambientes as $amb)
                               <option value="{{$amb->id}}">{{$amb->nombre}}</option>
                               @endforeach
@@ -39,7 +39,7 @@
                         <div class="col-3">
                           <div class="form-group " style="text-align: center;">
                             <label  for="" ><b>Cantidad </b> </label>
-                            <input type="number" class="form-control" rows="3">
+                            <input type="number" class="form-control" rows="3" id="cantidad" name="cantidad">
                           </div>
                         </div>
 

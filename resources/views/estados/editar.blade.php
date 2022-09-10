@@ -8,8 +8,8 @@
 
                 @csrf
                     <br>
-                    <div class="card-header" style="justify-content: center; background-color:#188755; color:white;">
-                      <h1 style="text-align: center;"><i class="fas fa-landmark"></i><b> <font face="nirvana">Editar Ambiente</font></b> </h1>
+                    <div class="card-header" style="justify-content: center; background-color:#33A2C5; color:white;">
+                      <h1 style="text-align: center;"><i class="fas fa-swatchbook"></i><b> <font face="nirvana">Editar Estado</font></b> </h1>
                     </div>
                     <br>
 
@@ -27,7 +27,7 @@
                         <div class="col-3">
                           <div class="form-group" style="text-align: center;">
                             <label for="nombre" ><b>Descripcion</b> </label>
-                            <input class="form-control" value="{{$estado->nombre}}" type="text" name="nombre" id="nombre" placeholder="Ingrese Un Nombre" required>
+                            <input class="form-control" value="{{$estado->descripcion}}" type="text" name="descripcion" id="descripcion" placeholder="Ingrese Un Nombre" required>
                           </div>
                         </div>
                         <hr>
@@ -38,7 +38,7 @@
                           </div>
 
                           <div class="col-3" style="text-align: center;" >
-                            <a ><button type="submit" class="btn btn-success"> Aceptar</button></a>
+                              <a ><button style="background-color:#33A2C5; color :white;" type="submit" class="btn btn"> Actualizar</button></a>
                           </div>
                         </div>
                         

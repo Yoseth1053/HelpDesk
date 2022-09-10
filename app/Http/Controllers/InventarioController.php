@@ -46,6 +46,7 @@ class InventarioController extends Controller
         $inventario->cantidad=$request->cantidad;
         $inventario->elemento_id = $request->elemento_id;
         $inventario->ambiente_id = $request->ambiente_id;
+        $inventario->estado = 1;
         // $input = $request->all();
         // $inventario->fill($input);
         $inventario->save();
@@ -61,7 +62,7 @@ class InventarioController extends Controller
      */
     public function show(Inventario $inventario)
     {
-        return view('elementos.ver', compact('inventario'));//
+        return view('inventarios.ver', compact('inventario'));//
     }
 
     /**
@@ -72,7 +73,9 @@ class InventarioController extends Controller
      */
     public function edit(Inventario $inventario)
     {
-        return view('elementos.editar', compact('inventario'));//
+        $ambientes = Ambiente::all();
+        $elementos = Elemento::all();
+        return view('inventarios.editar', compact('inventario','ambientes','elementos'));//
     }
 
     /**
@@ -85,8 +88,8 @@ class InventarioController extends Controller
     public function update(Request $request, Inventario $inventario)
     {
         $inventario->cantidad = $request->cantidad;
-        $inventario->id_elemento = $request->id_elemento;
-        $inventario->id_ambiente = $request->id_ambiente;
+        $inventario->elemento_id = $request->elemento_id;
+        $inventario->ambiente_id = $request->ambiente_id;
         $inventario->save();
         session()->flash("flash.banner","Inventario creado satisfactoriamente");
         return Redirect::route("inventarios.index");//

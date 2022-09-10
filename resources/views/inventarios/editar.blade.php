@@ -3,13 +3,13 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm😛x-6 lg😛x-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <form action="{{ route('ambientes.update', $ambiente) }}" method="post">
+                <form action="{{ route('inventarios.update', $inventario) }}" method="post">
                 @method('PUT') {{-- Se utiliza para cargar el metodo update --}}
 
                 @csrf
                     <br>
-                    <div class="card-header" style="justify-content: center; background-color:#188755; color:white;">
-                      <h1 style="text-align: center;"><i class="fas fa-landmark"></i><b> <font face="nirvana">Editar Ambiente</font></b> </h1>
+                    <div class="card-header" style="justify-content: center; background-color:#33A2C5; color:white;">
+                      <h1 style="text-align: center;"><i class="fas fa-file-alt"></i><b> <font face="nirvana">Editar Inventario</font></b> </h1>
                     </div>
                     <br>
 
@@ -17,25 +17,32 @@
 
                       <div class="row" style="justify-content: center;">
 
-                        <div class="col-3">
+                      <div class="col-3">
                           <div class="form-group" style="text-align: center;">
-                            <label for="nombre" ><b>Nombre</b> </label>
-                            <input class="form-control" value="{{$ambiente->nombre}}" type="text" name="nombre" id="nombre" placeholder="Ingrese Un Nombre" required>
+                            <label for="" ><b>Elemento</b> </label>
+                            <select class="form-control" name="elemento_id" id="elemento_id">
+                              @foreach($elementos as $elm)
+                              <option  value="{{$elm->id}}">{{$elm->nombre}}</option>
+                              @endforeach
+                            </select>                          
                           </div>
                         </div>
 
                         <div class="col-3">
                           <div class="form-group " style="text-align: center;">
-                            <label  for="" ><b>Ubicacion </b> </label>
-                            <select class="form-control" name="ubicacion" id="ubicacion" required>
-                              <option value="Bloque 1 Piso 1" @if($ambiente->ubicacion == 'Bloque 1 Piso 1') selected @endif >Bloque 1 Piso 1</option>
-                              <option value="Bloque 1 Piso 2" @if($ambiente->ubicacion == 'Bloque 1 Piso 2') selected @endif >Bloque 1 Piso 2</option>
-                              <option value="Bloque 1 Piso 3" @if($ambiente->ubicacion == 'Bloque 1 Piso 3') selected @endif >Bloque 1 Piso 3</option>
-                              <option value="Bloque 2 Piso 1" @if($ambiente->ubicacion == 'Bloque 2 Piso 1') selected @endif >Bloque 2 Piso 1</option>
-                              <option value="Bloque 2 Piso 2" @if($ambiente->ubicacion == 'Bloque 2 Piso 2') selected @endif >Bloque 2 Piso 2</option>
-                              <option value="Bloque 2 Piso 3" @if($ambiente->ubicacion == 'Bloque 2 Piso 3') selected @endif >Bloque 2 Piso 3</option>
-
+                            <label  for="" ><b>Ambiente </b> </label>
+                            <select class="form-control"  name="ambiente_id" id="ambiente_id">
+                              @foreach($ambientes as $amb)
+                              <option value="{{$amb->id}}">{{$amb->nombre}}</option>
+                              @endforeach
                             </select>
+                          </div>
+                        </div>
+
+                        <div class="col-3">
+                          <div class="form-group " style="text-align: center;">
+                            <label  for="" ><b>Cantidad </b> </label>
+                            <input type="number" class="form-control" rows="3" id="cantidad" name="cantidad" value="{{$inventario->cantidad}}">
                           </div>
                         </div>
                         <hr>
@@ -46,7 +53,7 @@
                           </div>
 
                           <div class="col-3" style="text-align: center;" >
-                            <a ><button type="submit" class="btn btn-success"> Aceptar</button></a>
+                          <a ><button style="background-color:#33A2C5; color : white;" type="submit" class="btn btn"> Actualizar</button></a>
                           </div>
                         </div>
                         

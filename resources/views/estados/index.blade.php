@@ -1,15 +1,15 @@
 @include('layouts.app')
 <br>
 <div class="card-header" style="justify-content: center; background-color:#33A2C5; color:white;">
-    <h1 style="text-align: center;"><i class="fa fa-window-restore"></i><b>
-            <font face="nirvana">Estados</font>
+    <h1 style="text-align: center;"><i class="fas fa-swatchbook"></i><b>
+            <font face="nirvana"> Estados</font>
         </b> </h1>
 </div>
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="p-2">
             <div class="flex justify-end">
-                <a style="color: white ; background-color:#33A2C5;" href="{{ route('estados.create') }}" class="btn"> Nuevo Estados</button> </a>
+                <a style="color: white ; background-color:#33A2C5;" href="{{ route('estados.create') }}" class="btn"> Nuevo Estado</button> </a>
                 <!-- <a href="">
                     <button>Crear</button>
                 </a> -->
@@ -24,8 +24,7 @@
                 <tr>
                     <th class="text-center">Id</th>
                     <th class="text-center">Nombre</th>
-                
-                    <!-- <th>Estado</th> -->
+                    <th class="text-center">Estado</th>
                     <th class="text-center">Opciones</th>
                 </tr>
             </thead>
@@ -33,8 +32,7 @@
                 <tr>
                     <th class="text-center">Id</th>
                     <th class="text-center">Nombre</th>
-                    
-                    <!-- <th>Estado</th> -->
+                    <th class="text-center">Estado</th>
                     <th class="text-center">Opciones</th>
                 </tr>
             </tfoot>
@@ -47,6 +45,11 @@
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         {{$estado->nombre}}
                     </td>
+                    @if($estado->estado == 1)
+                    <td style="color: green;"><b>Activo</b> </td>
+                    @else
+                    <td style="color: #BC2B2B;"><b>Inactivo</b> </td>
+                    @endif
                     
                     <td>
                         <div class="dropdown">

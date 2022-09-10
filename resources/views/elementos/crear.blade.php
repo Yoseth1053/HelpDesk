@@ -22,12 +22,6 @@
                           </div>
                         </div>
 
-                        <div class="col-3">
-                          <div class="form-group " style="text-align: center;">
-                            <label  for="" ><b>Descripcion </b> </label>
-                            <input type="textArea" class="form-control" rows="3">
-                          </div>
-                        </div>
                         <hr>
                         <br>
                         <div class="row" style="justify-content: center;">

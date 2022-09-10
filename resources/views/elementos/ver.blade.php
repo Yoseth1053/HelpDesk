@@ -1,9 +1,7 @@
 @include('layouts.app')
 <br>
-    <div class="card-header" style="justify-content: center; background-color:#188755; color:white;">
-        <h1 style="text-align: center;"><i class="fas fa-landmark"></i><b>
-                <font face="nirvana">Informacion Del Ambiente</font>
-            </b> </h1>
+    <div class="card-header" style="justify-content: center; background-color:#33A2C5; color:white;">
+        <h1 style="text-align: center;"><i class="fa fa-window-restore"></i><b> <font face="nirvana">Informacion Del Elemento</font></b> </h1>
     </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -18,16 +16,14 @@
                     <tr style="background-color: aqua;">
                         <th class="text-center">Id</th>
                         <th class="text-center">Nombre</th>
-                        <th class="text-center">Ubicacion</th>
                         <!-- <th>Estado</th> -->
                         <th class="text-center">Estado</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                    <td>{{$ambiente->id}}</td>
-                    <td>{{$ambiente->nombre}}</td>
-                    <td>{{$ambiente->ubicacion}}</td>
-                    @if($ambiente->estado == 1)
+                    <td>{{$elemento->id}}</td>
+                    <td>{{$elemento->nombre}}</td>
+                    @if($elemento->estado == 1)
                     <td style="color: green;"><b>Activo</b> </td>
                     @else
                     <td style="color: #BC2B2B;">Inactivo</td>
@@ -43,7 +39,7 @@
                 </div>
 
                 <div class="col-3" style="text-align: center;">
-                <a href="{{ route('ambientes.edit', $ambiente) }}" class="btn btn-primary"> Actualizar</button> </a>
+                <a href="{{ route('elementos.edit', $elemento) }}" style="background-color:#33A2C5; color : white;" class="btn"> Actualizar</button> </a>
                 </div>
             </div>
             
