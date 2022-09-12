@@ -40,7 +40,15 @@
                         <li><a class="dropdown-item" href="#!">Configuracion</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="{{ route('logout') }}">Cerrar Sesion</a></li>
+                        <li> <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                @csrf
+
+                                <x-jet-dropdown-link href="{{ route('logout') }}"
+                                         @click.prevent="$root.submit();">
+                                    {{ __('Log Out') }}
+                                </x-jet-dropdown-link>
+                            </form></li>
                     </ul>
                 </li>
             </ul>
@@ -61,7 +69,7 @@
 
                             <!-- Ambientes -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collAmbiente" aria-expanded="false" aria-controls="collAmbiente">
-                                <div class="sb-nav-link-icon"><i class="fas fa-landmark" style="color:#095F71;" ></i></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-landmark" style="color:#188755;" ></i></i></div>
                                 Ambientes
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -73,7 +81,7 @@
 
                             <!-- Elementos -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collElemento" aria-expanded="false" aria-controls="collElemento">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open" style="color:#095F71;"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-laptop-house" style="color:#095F71;"></i></div>
                                 Elementos
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -87,7 +95,7 @@
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collEstados" aria-expanded="false" aria-controls="collEstados">
                                 <div class="sb-nav-link-icon"><i class="fas fa-swatchbook" style="color:#095F71;"></i></div>
-                                Estados
+                                Estados 
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collEstados" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
@@ -101,7 +109,7 @@
 
                             <!-- Incidentes -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collIncidentes" aria-expanded="false" aria-controls="collIncidentes">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open" style="color:#095F71;" ></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa fa-check-square-o" style="color:#E8700B;" ></i></div>
                                 Incidentes
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -113,7 +121,7 @@
 
                             <!-- Inventario -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collInventario" aria-expanded="false" aria-controls="collInventario">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open" style="color:#095F71;" ></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-file-alt" style="color:#095F71;" ></i></div>
                                 Inventario
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>

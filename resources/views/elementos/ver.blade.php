@@ -1,7 +1,7 @@
 @include('layouts.app')
 <br>
     <div class="card-header" style="justify-content: center; background-color:#33A2C5; color:white;">
-        <h1 style="text-align: center;"><i class="fa fa-window-restore"></i><b> <font face="nirvana">Informacion Del Elemento</font></b> </h1>
+        <h1 style="text-align: center;"><i class="fas fa-laptop-house"></i><b> <font face="nirvana">Informacion Del Elemento</font></b> </h1>
     </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

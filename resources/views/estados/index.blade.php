@@ -1,7 +1,7 @@
 @include('layouts.app')
 <br>
 <div class="card-header" style="justify-content: center; background-color:#33A2C5; color:white;">
-    <h1 style="text-align: center;"><i class="fas fa-swatchbook"></i><b>
+    <h1 style="text-align: center;"><i class="fas fa-swatchbook "></i><b>
             <font face="nirvana"> Estados</font>
         </b> </h1>
 </div>

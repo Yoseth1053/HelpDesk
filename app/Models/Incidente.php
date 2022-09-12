@@ -20,7 +20,7 @@ class Incidente extends Model
         'fecha',
         'ambiente_id',
         'descripcion',
-        'estado',
+        'estado_id',
 
         'fechaRespuesta',
         'horaRespuesta',

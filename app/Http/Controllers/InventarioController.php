@@ -50,7 +50,7 @@ class InventarioController extends Controller
         // $input = $request->all();
         // $inventario->fill($input);
         $inventario->save();
-        session()->flash("flash.banner","Inventario creado satisfactoriamente");
+        
         return Redirect::route("inventarios.index");//
     }
 

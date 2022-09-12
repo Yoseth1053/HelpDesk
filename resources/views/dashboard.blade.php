@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <br>
-    <div class="card-header" style="background-color: ;">
+    <div class="card-header" style="background-color: black;">
         <h1 style="text-align: center;">Bienvenido A HelpDesk</h1>
     </div>
 
