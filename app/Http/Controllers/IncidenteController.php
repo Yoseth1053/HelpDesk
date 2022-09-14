@@ -50,7 +50,7 @@ class IncidenteController extends Controller
         $incidente->hora = $request->hora;
         $incidente->ambiente_id = $request->ambiente;
         $incidente->descripcion = $request->descripcion;
-        $incidente->estado = 1;
+        $incidente->estado_id = 1;
         // $input = $request->all();
         // $incidente->fill($input);
         $incidente->save();

@@ -7,7 +7,7 @@
                 @csrf
                     <br>
                     <div class="card-header" style="justify-content: center; background-color:#E8700B; color:white;">
-                      <h1 style="text-align: center;"><i class="fas fa-file-alt"></i><b> <font face="nirvana">Reportar Incidente</font></b> </h1>
+                      <h1 style="text-align: center;"><i class="fa fa-check-square-o"></i><b> <font face="nirvana">Reportar Incidente</font></b> </h1>
                     </div>
                     <br>
 
@@ -34,8 +34,8 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="ambiente_id">Ambiente</label>
-                                <select name="ambiente" class="form-control">
-                                    <option selected>-- Seleccionar --</option>
+                                <select name="ambiente" class="form-control" required>
+                                    <option value="" selected>-- Seleccionar --</option>
                                     @foreach($ambientes as $ambiente)
                                     <option value="{{$ambiente->id}}"> {{$ambiente->nombre}} </option>
                                     @endforeach
@@ -47,7 +47,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="descripcion">Descripción Del Incidente</label>
-                                    <input type="textArea" class="form-control" name="descripcion" rowa>
+                                    <input type="textArea" class="form-control" name="descripcion" required>
                                 </div>
                             </div>
                         </div>
