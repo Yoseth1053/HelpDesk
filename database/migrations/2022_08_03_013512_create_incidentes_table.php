@@ -14,7 +14,28 @@ return new class extends Migration
     public function up()
     {
         Schema::create('incidentes', function (Blueprint $table) {
+           
             $table->id();
+            $table->time('hora');
+            $table->date('fecha');
+
+            $table->unsignedBigInteger('ambiente_id');
+            $table->foreign('ambiente_id')->references('id')->on('ambientes');
+
+            $table->text('descripcion');
+
+            $table->unsignedBigInteger('estado_id');
+            $table->foreign('estado_id')->references('id')->on('estados');
+
+            $table->time('horaRespuesta');
+            $table->date('fechaRespuesta');
+            $table->time('horaProg');
+            $table->date('fechaProg');
+            
+            $table->time('horaSolucion');
+            $table->date('fechaSolucion');
+            $table->text('solucionImplementada');
+
             $table->timestamps();
         });
     }
