@@ -71,7 +71,7 @@ class IncidenteController extends Controller
      */
     public function show(Incidente $incidente)
     {
-        //
+        return view('incidentes.ver', compact('incidente'));//
     }
 
     /**
@@ -82,7 +82,10 @@ class IncidenteController extends Controller
      */
     public function edit(Incidente $incidente)
     {
-        //
+        $fecha = Carbon::now()->format('d-m-Y');
+        $fecha = date('Y-m-d', strtotime($fecha));
+        $hora = Carbon::now()->format('H:i:s');
+        return view('incidentes.agenda', compact('incidente','fecha','hora'));//
     }
 
     /**
@@ -94,7 +97,19 @@ class IncidenteController extends Controller
      */
     public function update(Request $request, Incidente $incidente)
     {
-        //
+        if($request->fechaRespuesta != null)
+        {
+            $incidente->fechaRespuesta = $request->fechaRespuesta; 
+            $incidente->horaRespuesta = $request->horaRespuesta;
+            $incidente->fechaProg = $request->fechaProg;
+            $incidente->horaProg = $request->horaProg;
+            $incidente->observacion = $request->observacion;
+            $incidente->estado_id = 2;
+            $incidente->save();        
+            session()->flash("flash.banner","Incidente Agendado satisfactoriamente");
+        }
+
+        return Redirect::route("incidentes.index");//
     }
 
     /**

@@ -27,14 +27,15 @@ return new class extends Migration
             $table->unsignedBigInteger('estado_id');
             $table->foreign('estado_id')->references('id')->on('estados');
 
-            $table->time('horaRespuesta');
-            $table->date('fechaRespuesta');
-            $table->time('horaProg');
-            $table->date('fechaProg');
+            $table->time('horaRespuesta')->nullable();
+            $table->date('fechaRespuesta')->nullable();
+            $table->time('horaProg')->nullable();
+            $table->date('fechaProg')->nullable();
+            $table->text('observacion')->nullable();
             
-            $table->time('horaSolucion');
-            $table->date('fechaSolucion');
-            $table->text('solucionImplementada');
+            $table->time('horaSolucion')->nullable();
+            $table->date('fechaSolucion')->nullable();
+            $table->text('solucionImplementada')->nullable();
 
             $table->timestamps();
             

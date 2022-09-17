@@ -36,7 +36,7 @@ Route::middleware([
     Route::resource('incidentes', IncidenteController::class);
     Route::resource('estados', EstadoController::class);
 
-    Route::get('/incidentes.agenda', 'IncidenteController@agenda'::class)->name('incidentes.agenda');
+    // Route::get('/incidentes.agenda', 'IncidenteController@agenda'::class)->name('incidentes.agenda');
     
 
 

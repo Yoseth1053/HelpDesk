@@ -18,7 +18,6 @@
     </div>
 
     <div class="card-body">
-
         <table id="myTable" class="display" cellspacing="0" width="100%">
             <thead class="thead-dark">
                 <tr>
@@ -48,7 +47,7 @@
                     @if($incidente->estado->nombre == 'Solicitado')
                     <td style="color: #BC2B2B;"><b>{{$incidente->estado->nombre}}</b> </td>
                     @elseif($incidente->estado->nombre == 'Agendado')
-                    <td style="color: #BC2B2B;"><b>{{$incidente->estado->nombre}}</b> </td>
+                    <td style="color: #0A8BAE;"><b>{{$incidente->estado->nombre}}</b> </td>
                     @elseif($incidente->estado->nombre == 'Solucionado')
                     <td style="color: green;"><b>{{$incidente->estado->nombre}}</b> </td>
                     @endif
