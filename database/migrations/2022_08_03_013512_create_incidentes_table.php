@@ -38,7 +38,6 @@ return new class extends Migration
             $table->text('solucionImplementada')->nullable();
 
             $table->timestamps();
-            
         });
     }
 

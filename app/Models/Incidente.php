@@ -36,4 +36,9 @@ class Incidente extends Model
     {
         return $this->belongsTo(Estado::class);
     }
+
+    public function ambiente()
+    {
+        return $this->belongsTo(Ambiente::class);
+    }
 }

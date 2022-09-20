@@ -27,5 +27,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 <script src="assets/demo/chart-area-demo.js"></script>
 <script src="assets/demo/chart-bar-demo.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+        $('#mostrar').click(function(){
+    
+            $('#agenda').hide();
+           
+        });
+    
+        $('#ocultar').click(function(){
+    
+    $('#agenda').show();
+    
+    });
+</script>
 </body>
 </html>
