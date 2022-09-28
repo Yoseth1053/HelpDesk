@@ -26,6 +26,7 @@ class Incidente extends Model
         'horaRespuesta',
         'fechaProg',
         'horaProg',
+        'observacion',
         
         'fechaSolucion',
         'horaSolucion',
