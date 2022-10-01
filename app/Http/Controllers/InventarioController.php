@@ -20,7 +20,6 @@ class InventarioController extends Controller
         $inventarios = Inventario::all();
         return view('inventarios.index', compact('inventarios'));//
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -46,7 +45,7 @@ class InventarioController extends Controller
         $inventario->cantidad=$request->cantidad;
         $inventario->elemento_id = $request->elemento_id;
         $inventario->ambiente_id = $request->ambiente_id;
-        $inventario->estado = 1;
+        // $inventario->estado_id = 1;
         // $input = $request->all();
         // $inventario->fill($input);
         $inventario->save();

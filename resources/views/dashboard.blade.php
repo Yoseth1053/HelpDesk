@@ -6,7 +6,7 @@
     </x-slot>
     <br>
     <div class="card-header" style="background-color: black;">
-        <h1 style="text-align: center;">Bienvenido A HelpDesk</h1>
+        <h1 style="text-align: center; color: white;">Bienvenido A HelpDesk</h1>
     </div>
 
 @include('layouts.footer')

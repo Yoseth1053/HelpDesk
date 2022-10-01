@@ -56,10 +56,16 @@
                         <div class="dropdown">
                             <button type="submit" class="dropbtn"><i class="fas fa-list-alt"></i><b> Opciones</b></button>
                             <div class="dropdown-content">
+                            @if($incidente->estado->nombre == 'Solicitado')
                                 <a class="dropdown-item" href="{{route('incidentes.show',$incidente)}}" style="color:black"><i class="fas fa-binoculars" style="color:black"></i><b> Ver</b> </a>
                                 <a class="dropdown-item" href="{{route('incidentes.edit',$incidente)}}" style="color:#157ECE"><i class="far fa-calendar-alt" style="color:#157ECE"></i><b> Agendar</b></a>
-                                <a class="dropdown-item" href="{{route('incidentes.show',$incidente)}}" style="color:green"><i class="fas fa-edit" style="color:green"></i><b> Solucionar</b></a>
-
+                                <a class="dropdown-item" href="{{route('Solucion',$incidente)}}" style="color:green"><i class="fas fa-edit" style="color:green"></i><b> Solucionar</b></a>
+                            @elseif($incidente->estado->nombre == 'Agendado')
+                                <a class="dropdown-item" href="{{route('incidentes.show',$incidente)}}" style="color:black"><i class="fas fa-binoculars" style="color:black"></i><b> Ver</b> </a>
+                                <a class="dropdown-item" href="{{route('Solucion',$incidente)}}" style="color:green"><i class="fas fa-edit" style="color:green"></i><b> Solucionar</b></a>
+                            @elseif($incidente->estado->nombre == 'Solucionado')
+                            <a class="dropdown-item" href="{{route('incidentes.show',$incidente)}}" style"color:black"><i class="fas fa-binoculars" style="color:black"></i><b> Ver</b> </a>
+                            @endif
                             </div>
                         </div>
                     </td>

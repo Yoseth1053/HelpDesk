@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/ejemplo.ejemplo', function () {
+//     return 'Hola mundo';
+// });
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -35,11 +39,11 @@ Route::middleware([
     Route::resource('elementos', ElementoController::class);
     Route::resource('incidentes', IncidenteController::class);
     Route::resource('estados', EstadoController::class);
-
-    // Route::get('/incidentes.agenda', 'IncidenteController@agenda'::class)->name('incidentes.agenda');
-    
-
+    Route::get('Solucion/{incidente}', [App\Http\Controllers\IncidenteController::class,'solucion'])->name('Solucion');
+    Route::get('SolucionStore/{incidente}', [App\Http\Controllers\IncidenteController::class,'solucionStore'])->name('SolucionStore');
 
 });
+    
+    
 
 

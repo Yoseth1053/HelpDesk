@@ -55,10 +55,21 @@ class IncidenteController extends Controller
         // $incidente->fill($input);
         $incidente->save();
         session()->flash("flash.banner","Incidente creado satisfactoriamente");
-        return Redirect::route("incidentes.index");//
+        return Redirect::route("incidentes.index");
     }
 
-    public function agenda(Incidente $incidente)
+    public function solucion(Incidente $incidente)
+    {
+       
+       
+        $fecha =  $incidente->fechaProg ;
+        $hora =  $incidente->horaProg ;
+        $observacion =  $incidente->observacion;
+        // $hora = Carbon::now()->format('H:i:s');
+        return view('incidentes.solucion', compact('incidente','fecha','hora','observacion'));//
+    }
+
+    public function solucionStore(Incidente $incidente)
     {
         return view('incidentes.agenda', compact('incidente'));//
     }
