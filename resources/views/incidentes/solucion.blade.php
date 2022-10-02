@@ -16,6 +16,7 @@
 
                 <div class="card-body" style="background-color: #CCCCCC;">
 
+                @if($incidente->fechaProg != null)
                     <div class="card-header" style="justify-content: center; background-color:#F3F3F3; color:#E8700B;">
                         <h4 style="text-align: center;"><b>
                                 <font face="nirvana">Agenda
@@ -60,7 +61,7 @@
                         </table>
                        <br>
                     </div>
-                    
+                    @endif
 
                     <div class="card-header" style="justify-content: center; background-color:#F3F3F3; color:#E8700B;">
                         <h4 style="text-align: center;"><b>
@@ -73,15 +74,15 @@
                     <div class="row" style="justify-content: center; text-align:center;">
                         <div class="col-3">
                             <div class="form-group">
-                                <label for=""><b>Fecha Real</b></label>
-                                <input type="date" class="form-control" name="fechaProg" required>
+                                <label for=""><b>Fecha</b></label>
+                                <input type="date" class="form-control" name="fechaSol" required>
                             </div>
                         </div>
 
                         <div class="col-3">
                             <div class="form-group">
-                                <label for=""><b>Hora Real</b></label>
-                                <input type="time" class="form-control" name="horaProg" required>
+                                <label for=""><b>Hora</b></label>
+                                <input type="time" class="form-control" name="horaSol" required>
                             </div>
                         </div>
                     </div>
@@ -90,7 +91,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for=""><b>Solucion Implementada</b> </label>
-                                <textarea rows="4" name="solucion" class="form-control" required></textarea>
+                                <textarea rows="4" name="solucionImplementada" class="form-control" required></textarea>
                             </div>
                         </div>
 

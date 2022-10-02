@@ -60,8 +60,6 @@ class IncidenteController extends Controller
 
     public function solucion(Incidente $incidente)
     {
-       
-       
         $fecha =  $incidente->fechaProg ;
         $hora =  $incidente->horaProg ;
         $observacion =  $incidente->observacion;
@@ -69,9 +67,16 @@ class IncidenteController extends Controller
         return view('incidentes.solucion', compact('incidente','fecha','hora','observacion'));//
     }
 
-    public function solucionStore(Incidente $incidente)
+    public function solucionStore(Request $request, Incidente $incidente)
     {
-        return view('incidentes.agenda', compact('incidente'));//
+            $incidente->fechaSolucion = $request->fechaSol; 
+            $incidente->horaSolucion = $request->horaSol;
+            $incidente->solucionImplementada = $request->solucionImplementada;
+            $incidente->estado_id = 3;
+            $incidente->save();   
+
+            session()->flash("flash.banner","Incidente Solucionado satisfactoriamente");
+            return Redirect::route("incidentes.index");//
     }
 
     /**

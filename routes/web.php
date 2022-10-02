@@ -40,7 +40,7 @@ Route::middleware([
     Route::resource('incidentes', IncidenteController::class);
     Route::resource('estados', EstadoController::class);
     Route::get('Solucion/{incidente}', [App\Http\Controllers\IncidenteController::class,'solucion'])->name('Solucion');
-    Route::get('SolucionStore/{incidente}', [App\Http\Controllers\IncidenteController::class,'solucionStore'])->name('SolucionStore');
+    Route::post('SolucionStore/{incidente}', [App\Http\Controllers\IncidenteController::class,'solucionStore'])->name('SolucionStore');
 
 });
     
