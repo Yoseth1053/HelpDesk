@@ -7,6 +7,8 @@
 </div>
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+    
         <div class="p-2">
             <div class="flex justify-end">
                 <a style="color: white ; background-color:#E8700B;" href="{{ route('incidentes.create') }}" class="btn"> Reportar Incidente</button> </a>

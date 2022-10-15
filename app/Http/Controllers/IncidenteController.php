@@ -60,11 +60,11 @@ class IncidenteController extends Controller
 
     public function solucion(Incidente $incidente)
     {
-        $fecha =  $incidente->fechaProg ;
-        $hora =  $incidente->horaProg ;
-        $observacion =  $incidente->observacion;
+        $fecha = Carbon::now()->format('d-m-Y');
+        $fecha = date('Y-m-d', strtotime($fecha));
+        $hora = Carbon::now()->format('H:i:s');
         // $hora = Carbon::now()->format('H:i:s');
-        return view('incidentes.solucion', compact('incidente','fecha','hora','observacion'));//
+        return view('incidentes.solucion', compact('incidente','fecha','hora'));//
     }
 
     public function solucionStore(Request $request, Incidente $incidente)

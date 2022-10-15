@@ -6,17 +6,41 @@
         </b> </h1>
 </div>
 <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="p-2">
-            <div class="flex justify-end">
-                <a style="color: white ; background-color:#33A2C5;" href="{{ route('inventarios.create') }}" class="btn"> Nuevo Inventario</button> </a>
-                <!-- <a href="">
-                    <button>Crear</button>
-                </a> -->
+<form action="{{ route('exportarPDF') }}" method="get">
+@csrf
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="p-2">
+        <div class="flex justify-end">
+            <div class="row">
+
+                <div class="col-3">
+                    <a style="color: white ; background-color:#33A2C5;" href="{{ route('inventarios.create') }}" class="btn"> Nuevo Inventario</a>
+                    <a id="pdf" style="color: white ; background-color:#CC4027;" href="#" class="btn"><i class="fas fa-file-pdf"></i></a>
+                </div>
+
+                <div class="col-6" id="slcAmb" style="display:none;">
+                    <div class="form-group " style="text-align: center;">
+                        <select name="ambiente" class="form-control">
+                            <option value="">-- Seleccione Un Ambiente --</option>
+                            @foreach($ambientes as $ambiente)
+                            <option value="{{$ambiente->id}}">{{$ambiente->nombre}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-3" id="btnExportar" style="display: none;">
+                    <div class="form-group " style="text-align: center;">
+                    <button type="submit" style="color: white ; background-color:#CC4027;" class="form-control" >Exportar PDF</button>
+                        <!-- <a style="color: white ; background-color:#CC4027;" href="" class="btn"> Exportar PDF</a> -->
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
-
+      </div>
+  </div>
+</form>
     <div class="card-body">
 
         <table id="myTable" class="display" cellspacing="0" width="100%">
@@ -26,7 +50,7 @@
                     <th class="text-center">Ambiente</th>
                     <th class="text-center">Elemento</th>
                     <th class="text-center">Cantidad</th>
-                
+
                     <!-- <th>Estado</th> -->
                     <th class="text-center">Opciones</th>
                 </tr>
@@ -37,7 +61,7 @@
                     <th class="text-center">Ambiente</th>
                     <th class="text-center">Elemento</th>
                     <th class="text-center">Cantidad</th>
-                    
+
                     <!-- <th>Estado</th> -->
                     <th class="text-center">Opciones</th>
                 </tr>
@@ -56,7 +80,7 @@
                     </td>
 
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                     {{$inventario->cantidad}}
+                        {{$inventario->cantidad}}
                     </td>
 
                     <td>
@@ -82,4 +106,13 @@
     </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $('#pdf').click(function() {
+        $('#slcAmb').toggle(300);
+        $('#btnExportar').toggle(300);
+        
+    });
+    
+</script>
 @include('layouts.footer')

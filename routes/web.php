@@ -41,6 +41,7 @@ Route::middleware([
     Route::resource('estados', EstadoController::class);
     Route::get('Solucion/{incidente}', [App\Http\Controllers\IncidenteController::class,'solucion'])->name('Solucion');
     Route::post('SolucionStore/{incidente}', [App\Http\Controllers\IncidenteController::class,'solucionStore'])->name('SolucionStore');
+    Route::get('exportarPDF', [App\Http\Controllers\InventarioController::class,'exportarPdf'])->name('exportarPDF');
 
 });
     

@@ -24,7 +24,6 @@
             <thead class="thead-dark">
                 <tr style="background-color: aqua;">
                     <th class="text-center">Ticket</th>
-
                     <th class="text-center">Fecha</th>
                     <th class="text-center">Hora</th>
                     <th class="text-center">Ambiente</th>
@@ -37,7 +36,13 @@
                 <td><b>{{$incidente->fecha}}</b></td>
                 <td><b>{{$incidente->hora}}</b></td>
                 <td><b>{{$incidente->ambiente->nombre}}</b></td>
-                <td><b>{{$incidente->estado->nombre}}</b></td>
+                @if($incidente->estado->nombre == 'Solicitado')
+                    <td style="color: #BC2B2B;"><b>{{$incidente->estado->nombre}}</b> </td>
+                    @elseif($incidente->estado->nombre == 'Agendado')
+                    <td style="color: #0A8BAE;"><b>{{$incidente->estado->nombre}}</b> </td>
+                    @elseif($incidente->estado->nombre == 'Solucionado')
+                    <td style="color: green;"><b>{{$incidente->estado->nombre}}</b> </td>
+                    @endif
 
             </tbody>
         </table>
@@ -74,8 +79,8 @@
 
                         <th class="text-center">Fecha</th>
                         <th class="text-center">Hora</th>
-                        <th class="text-center">Fecha Solucion</th>
-                        <th class="text-center">Hora Solucion</th>
+                        <th class="text-center">Fecha Programada</th>
+                        <th class="text-center">Hora Programada</th>
                         <!-- <th class="text-center">Estado</th> -->
                     </tr>
                 </thead>
@@ -103,6 +108,8 @@
     
     @endif
 
+    @if($incidente->fechaSolucion != null)
+
     <div class="card-header" style="justify-content: center; background-color:#F3F3F3; color:#E8700B;">
             <h4 style="text-align: center;"><b>
                     <font face="nirvana">Solucion
@@ -117,25 +124,27 @@
         <table  class="table table-striped table-light" cellspacing="0" width="100%">
                 <thead class="thead-dark">
                     <tr style="background-color: aqua;">
-                        <th class="text-center">Ticket</th>
-
                         <th class="text-center">Fecha</th>
                         <th class="text-center">Hora</th>
-                        <th class="text-center">Ambiente</th>
-                        <th class="text-center">Estado</th>
-                        <!-- <th class="text-center">Estado</th> -->
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                    <td><b>{{$incidente->id}}</b></td>
-                    <td><b>{{$incidente->fecha}}</b></td>
-                    <td><b>{{$incidente->hora}}</b></td>
-                    <td><b>{{$incidente->ambiente->nombre}}</b></td>
-                    <td><b>{{$incidente->estado->nombre}}</b></td>
-
+                    <td><b>{{$incidente->fechaSolucion}}</b></td>
+                    <td><b>{{$incidente->horaSolucion}}</b></td>
+                </tbody>
+            </table>
+            <table  class="table table-striped table-light" cellspacing="0" width="100%">
+                <thead class="thead-dark">
+                    <tr style="background-color: aqua;">
+                        <th class="text-center">Solucion Implementada</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <td><b>{{$incidente->solucionImplementada}}</b></td>
                 </tbody>
             </table>
         </div>
+        @endif
 
     <div class="row" style="justify-content: center;">
         <div class="col-3" style="text-align: center;">

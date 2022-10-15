@@ -7,6 +7,8 @@ use App\Models\Ambiente;
 use App\Models\Elemento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Termwind\Components\Dd;
+use PDF;
 
 class InventarioController extends Controller
 {
@@ -18,7 +20,8 @@ class InventarioController extends Controller
     public function index()
     {
         $inventarios = Inventario::all();
-        return view('inventarios.index', compact('inventarios'));//
+        $ambientes = Ambiente::all();
+        return view('inventarios.index', compact('inventarios','ambientes'));//
     }
     /**
      * Show the form for creating a new resource.
@@ -103,5 +106,14 @@ class InventarioController extends Controller
     public function destroy(Inventario $inventario)
     {
         //
+    }
+
+    public function exportarPdf(Request $request)
+    {
+        $ambiente = Ambiente::find($request->ambiente);
+
+        view()->share('ambiente',$ambiente);
+        $pdf = PDF::LoadView('');
+        dd($ambiente);//
     }
 }
