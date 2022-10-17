@@ -154,22 +154,22 @@ label:hover ~ input[type=password] {
 
 <form method="POST" action="{{ route('login') }}">
             @csrf
-        <x-jet-validation-errors class="mb-4" />
-
-  <h1>Help Desk</h1>
+<h1></h1>
+  <x-jet-validation-errors class="mb-4" />
+  <div align="center"><img style="align-items: center;" src="{{ asset('img/logo.png') }}" width="200" height="120"></div>
   <div class="inset">
   <p>
-    <label for="email">Correo</label>
-    <input type="text" name="email" id="email">
+    <label for="email" style="color: white;">Correo</label>
+    <input type="text" name="email" id="email" required>
   </p>
   <p>
-    <label for="password">Contraseña</label>
-    <input type="password" name="password" id="password">
+    <label for="password" style="color: white;">Contraseña</label>
+    <input type="password" name="password" id="password" required>
   </p>
   <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Recordarme') }}</span>
+                    <span class="ml-2 text-sm text-gray-600" style="color: white;">{{ __('Recordarme') }}</span>
                 </label>
             </div>
   </div>
