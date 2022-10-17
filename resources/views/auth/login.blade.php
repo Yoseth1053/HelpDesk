@@ -154,6 +154,8 @@ label:hover ~ input[type=password] {
 
 <form method="POST" action="{{ route('login') }}">
             @csrf
+        <x-jet-validation-errors class="mb-4" />
+
   <h1>Help Desk</h1>
   <div class="inset">
   <p>

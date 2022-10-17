@@ -128,6 +128,19 @@ class IncidenteController extends Controller
         return Redirect::route("incidentes.index");//
     }
 
+    public function consulta()
+    {
+        return view('consulta');//
+    }
+
+    public function procesar(Request $request)
+    {
+        $incidente = Incidente::find($request->num);
+        // dd($incidente );
+        return view('consultaVer', compact('incidente'));
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *

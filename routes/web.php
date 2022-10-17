@@ -7,6 +7,7 @@ use App\Http\Controllers\ElementoController;
 use App\Http\Controllers\EstadoController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('consulta', [App\Http\Controllers\IncidenteController::class,'consulta'])->name('consulta');
+Route::get('procesarConsul', [App\Http\Controllers\IncidenteController::class,'procesar'])->name('procesarConsul');
+
 
 // Route::get('/ejemplo.ejemplo', function () {
 //     return 'Hola mundo';

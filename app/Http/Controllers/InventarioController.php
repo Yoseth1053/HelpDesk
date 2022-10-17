@@ -111,9 +111,10 @@ class InventarioController extends Controller
     public function exportarPdf(Request $request)
     {
         $ambiente = Ambiente::find($request->ambiente);
+        $inventarios = Inventario::where('ambiente_id',$ambiente->id)->get();
 
-        view()->share('ambiente',$ambiente);
-        $pdf = PDF::LoadView('');
-        dd($ambiente);//
+        view()->share('inventarios',$inventarios);
+        $pdf = PDF::LoadView('pdf.ReporteInventario',['inventarios' => $inventarios,'ambiente' => $ambiente]);
+        return $pdf->stream('Reporte Inventario.pdf');
     }
 }

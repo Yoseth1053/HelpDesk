@@ -1,4 +1,4 @@
-@include('layouts.app')
+@include('layouts.app2')
 
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm😛x-6 lg😛x-8">
@@ -81,10 +81,10 @@
                             </tbody>
                         </table>
                        <br>
-                    </div>
+                    
                     <!-- Agenda -->
                     @endif
-
+                    </div>
                     <div class="card-header" style="justify-content: center; background-color:#F3F3F3; color:#E8700B;">
                         <h4 style="text-align: center;"><b>
                                 <font face="nirvana">Registrar Solucion

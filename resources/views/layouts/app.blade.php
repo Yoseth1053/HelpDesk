@@ -38,17 +38,15 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Configuracion</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><a class="dropdown-item" href="#!">Prfil</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li> <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}" x-data>
+                        <li> 
+                            <form method="POST" id="miForm" action="{{ route('logout') }}" x-data>
                                 @csrf
-
-                                <x-jet-dropdown-link href="{{ route('logout') }}"
-                                         @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
-                                </x-jet-dropdown-link>
-                            </form></li>
+                                <a class="dropdown-item" onclick="submit()" href="#"><i class="fas fa-door-open" ></i> Salir</a>
+                            </form>
+                        </li>
+                        <script>function submit() { document.getElementById("miForm").submit(); } </script>
                     </ul>
                 </li>
             </ul>

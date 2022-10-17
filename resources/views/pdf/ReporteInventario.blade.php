@@ -12,37 +12,27 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-8">
-                <h2>Lista de productos</h2>
+                <h2>Ambiente : {{$ambiente->nombre}}</h2>
             </div>
-            <div class="col-md-4">
-                <div class="mb-4 d-flex justify-content-end">
-                    <a class="btn btn-primary" href="{{ URL::to('#') }}">Convertir a PDF</a>
-                </div>
-            </div>
+            
         </div>
         <div class="row">
             <div class="col-md-12">
                 <table class="table">
-                    <caption>Lista de productos</caption>
+                    <caption>Lista de Elementos</caption>
                     <thead>
                       <tr>
-                        <th scope="col">SKU</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Cantidad</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Descripción</th>
                       </tr>
                     </thead>
                     <tbody>
-                        <!-- @foreach ($productos as $producto)
+                        @foreach ($inventarios as $inventario)
                         <tr>
-                            <th scope="row">{{ $producto->sku }}</th>
-                            <td>{{ $producto->nombre }}</td>
-                            <td>{{ $producto->cantidad }}</td>
-                            <td>{{ $producto->precio }}</td>
-                            <td>{{ $producto->descripcion }}</td>
+                            <td>{{ $inventario->elemento->nombre }}</td>
+                            <td>{{ $inventario->cantidad }}</td>
                         </tr>
-                        @endforeach -->
+                        @endforeach
                     </tbody>
                   </table>
             </div>
