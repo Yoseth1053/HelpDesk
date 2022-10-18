@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\AmbienteController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CargoController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\IncidenteController;
 use App\Http\Controllers\ElementoController;
 use App\Http\Controllers\EstadoController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,6 +28,9 @@ Route::get('/', function () {
 
 Route::get('consulta', [App\Http\Controllers\IncidenteController::class,'consulta'])->name('consulta');
 Route::get('procesarConsul', [App\Http\Controllers\IncidenteController::class,'procesar'])->name('procesarConsul');
+// Route::post('registrar', [App\Http\Controllers\IncidenteController::class,'store'])->name('procesarConsul');
+Route::resource('auth', AuthController::class);
+
 
 
 // Route::get('/ejemplo.ejemplo', function () {
@@ -42,11 +48,17 @@ Route::middleware([
     Route::resource('ambientes', AmbienteController::class);
     Route::resource('inventarios', InventarioController::class);
     Route::resource('elementos', ElementoController::class);
-    Route::resource('incidentes', IncidenteController::class);
     Route::resource('estados', EstadoController::class);
+
+    Route::resource('incidentes', IncidenteController::class);
     Route::get('Solucion/{incidente}', [App\Http\Controllers\IncidenteController::class,'solucion'])->name('Solucion');
     Route::post('SolucionStore/{incidente}', [App\Http\Controllers\IncidenteController::class,'solucionStore'])->name('SolucionStore');
     Route::get('exportarPDF', [App\Http\Controllers\InventarioController::class,'exportarPdf'])->name('exportarPDF');
+    
+    Route::resource('usuarios', UsuarioController::class);
+
+    Route::resource('cargos', CargoController::class);
+    Route::post('cambiarEst/{cargo}', [App\Http\Controllers\CargoController::class,'cambiarEst'])->name('cambiarEst');
 
 });
     

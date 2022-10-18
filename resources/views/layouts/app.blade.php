@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
         <!-- <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet" /> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 
 
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
@@ -28,7 +30,8 @@
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <input class="form-control" type="text" placeholder="Buscar
+                    " aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
@@ -39,6 +42,8 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Configuracion</a></li>
+                        <li style="display: none;" id="UsuarioOp"><a class="dropdown-item" href="#!">Usuarios</a></li>
+                        <li style="display: none;" id="CargoOp"><a class="dropdown-item" href="#!">Cargos</a></li>
                         <li><a class="dropdown-item" href="#!">Perfil</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li> 
@@ -62,6 +67,29 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-home" style="color:#095F71;"></i></div>
                                 Dashboard
                             </a>
+                            @if(Auth::user()->idCargo == 1)
+                             <!-- Configuracion -->
+                            <div class="sb-sidenav-menu-heading">Configuracion</div>
+
+                            <!-- Usuarios -->
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collAmbiente" aria-expanded="false" aria-controls="collAmbiente">
+                                <div class="sb-nav-link-icon"><i class="far fa-address-book" style="color:#188755;" ></i></i></div>
+                                Usuarios
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collAmbiente" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('ambientes.index') }}">Usuario</a>
+                                </nav>
+                            </div>
+                            
+
+                            <!-- Cargos -->
+                            <a class="nav-link collapsed" href="{{ route('cargos.index') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-address-card" style="color:#095F71;"></i></div>
+                                Cargos
+                            </a>
+                            
 
                             <!-- Parametros -->
                             <div class="sb-sidenav-menu-heading">Parametros</div>
@@ -102,7 +130,7 @@
                                    <a class="nav-link" href="{{ route('estados.index') }}">Gestionar Estados</a>
                                 </nav>
                             </div>
-
+                            @endif
                             <!-- Modulos -->
                             <div class="sb-sidenav-menu-heading">Modulos</div>
 
@@ -112,12 +140,25 @@
                                 Incidentes
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            @if(Auth::user()->idCargo == 1)
                             <div class="collapse" id="collIncidentes" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                    <a class="nav-link" href="{{ route('incidentes.index') }}">Gestionar Incidentes</a>
                                 </nav>
                             </div>
 
+                            @else
+                            <div class="collapse" id="collIncidentes" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                   <a class="nav-link" href="{{ route('incidentes.create') }}">Reportar Incidentes</a>
+                                </nav>
+                            </div>
+                            @endif
+
+
+                            
+
+                            @if(Auth::user()->idCargo == 1)
                             <!-- Inventario -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collInventario" aria-expanded="false" aria-controls="collInventario">
                                 <div class="sb-nav-link-icon"><i class="fas fa-file-alt" style="color:#095F71;" ></i></div>
@@ -129,6 +170,7 @@
                                 <a class="nav-link" href="{{ route('inventarios.index') }}">Gestionar Inventarios</a>
                                 </nav>
                             </div>
+                            @endif
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

@@ -55,7 +55,7 @@ class IncidenteController extends Controller
         // $incidente->fill($input);
         $incidente->save();
         session()->flash("flash.banner","Incidente creado satisfactoriamente");
-        return Redirect::route("incidentes.index");
+        return Redirect::back();
     }
 
     public function solucion(Incidente $incidente)
