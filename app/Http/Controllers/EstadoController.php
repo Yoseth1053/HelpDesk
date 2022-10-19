@@ -40,7 +40,6 @@ class EstadoController extends Controller
     {
         $estado = new Estado();
         $estado->nombre=$request->nombre;
-        $estado->descripcion = $request->descripcion;
         $estado->estado = 1;
         $estado->save();
         session()->flash("flash.banner","Estado creado satisfactoriamente");
@@ -79,7 +78,6 @@ class EstadoController extends Controller
     public function update(Request $request, Estado $estado)
     {
         
-        $estado->descripcion = $request->descripcion;
         $estado->nombre=$request->nombre;
         $estado->save();
         session()->flash("flash.banner","Estado creado satisfactoriamente");

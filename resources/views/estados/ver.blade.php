@@ -33,19 +33,6 @@
     
                 </tbody>
             </table>
-            <table id="" class="table table-striped table-light" cellspacing="0" width="100%">
-
-                <thead class="thead-dark">
-                    <tr style="background-color: aqua;">
-                        <th class="text-center">Descripcion</th>
-                        
-                    </tr>
-                </thead>
-                <tbody class="text-center">
-                    <td>{{$estado->descripcion}}</td>
-                    
-                </tbody>
-            </table>
             <br>
     
             <div class="row" style="justify-content: center;">

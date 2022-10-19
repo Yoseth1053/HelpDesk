@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nombres');
-            $table->string('apellidos');
+            $table->string('apellidos')->nullable();
             $table->string('documento')->nullable();
 
             $table->string('direccion')->nullable();
@@ -26,6 +26,8 @@ return new class extends Migration
 
             $table->unsignedBigInteger('idCargo');
             $table->foreign('idCargo')->references('id')->on('cargos');
+
+            $table->integer('estado');
 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

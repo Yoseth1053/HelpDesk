@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cargo;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -26,8 +27,9 @@ class UsuarioController extends Controller
      */
     public function create()
     {
+        $cargos = Cargo::all();
         $usuario = new User();
-        return view('usuarios.crear', compact('usuario'));//
+        return view('usuarios.crear', compact('usuario', 'cargos'));//
     }
 
     /**

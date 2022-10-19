@@ -24,12 +24,6 @@
                           </div>
                         </div>
 
-                        <div class="col-3">
-                          <div class="form-group" style="text-align: center;">
-                            <label for="nombre" ><b>Descripcion</b> </label>
-                            <input class="form-control" value="{{$estado->descripcion}}" type="text" name="descripcion" id="descripcion" placeholder="Ingrese Un Nombre" required>
-                          </div>
-                        </div>
                         <hr>
                         <br>
                         <div class="row" style="justify-content: center;">

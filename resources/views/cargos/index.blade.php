@@ -58,6 +58,8 @@
                                 <a class="dropdown-item" href="{{route('cargos.show',$cargo)}}" style="color:green"><i class="fas fa-binoculars" style="color:green"></i><b> Ver</b> </a>
                                 <a class="dropdown-item" href="{{route('cargos.edit',$cargo)}}" style="color:#157ECE"><i class="fas fa-edit" style="color:#157ECE"></i><b> Editar</b></a>
                                 @if ($cargo->estado == 1)
+
+                                
                                 <form action="{{route('cambiarEst',$cargo)}}" method="POST" id="desactivar">
                                 @csrf
                                    <button type="submit" class="btn dropdown-item" style="color:#C21F1F"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Desactivar</b></button>

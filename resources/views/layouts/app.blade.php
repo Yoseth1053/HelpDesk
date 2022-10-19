@@ -72,16 +72,11 @@
                             <div class="sb-sidenav-menu-heading">Configuracion</div>
 
                             <!-- Usuarios -->
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collAmbiente" aria-expanded="false" aria-controls="collAmbiente">
+                            <a class="nav-link collapsed" href="{{ route('usuarios.index') }}">
                                 <div class="sb-nav-link-icon"><i class="far fa-address-book" style="color:#188755;" ></i></i></div>
                                 Usuarios
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collAmbiente" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('ambientes.index') }}">Usuario</a>
-                                </nav>
-                            </div>
+                            
                             
 
                             <!-- Cargos -->

@@ -37,7 +37,6 @@ class AuthController extends Controller
      */
     public function store(RegistroRequest $request)
     {
-        
         $usuario = new User();
         $usuario->nombres = $request->nombres;
         $usuario->email = $request->email;
