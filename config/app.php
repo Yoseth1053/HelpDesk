@@ -183,6 +183,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class, //import para la exportacion de pdf
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class, //import para los mensajes sweetalert
 
         /*
          * Package Service Providers...
@@ -218,6 +219,7 @@ return [
       'Html' => Collective\Html\HtmlFacade::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'PDF' => Barryvdh\DomPDF\Facade::class, //import para la exportacion de pdf
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class, //import para los mensajes sweetalert
     ])->toArray(),
 
 ];

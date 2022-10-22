@@ -94,4 +94,22 @@ class EstadoController extends Controller
     {
         //
     }
+
+    public function cambiarEst(Estado $estado)
+    {
+        if($estado->estado == 1)
+        {
+            $est = Estado::where('id',$estado->id)->first();
+            $est->update(array('estado' => 0));
+            alert()->success('Exito','Estado desactivado');
+
+        }
+        elseif($estado->estado == 0)
+        {
+            $est = Estado::where('id',$estado->id)->first();
+            $est->update(array('estado' => 1));
+            alert()->success('Exito','Estado desactivado');
+        }
+        return back();
+}
 }

@@ -13,6 +13,7 @@ class Ambiente extends Model
     protected $fillable = [
         'id',
         'nombre',
+        'estado',
         'ubicacion',
     ];
 

@@ -178,6 +178,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
+                    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
                         <!-- <h1 class="mt-4">Mesa De Ayuda</h1>
                         
                         <div class="row">

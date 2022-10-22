@@ -30,7 +30,7 @@
                     @if($ambiente->estado == 1)
                     <td style="color: green;"><b>Activo</b> </td>
                     @else
-                    <td style="color: #BC2B2B;">Inactivo</td>
+                    <td style="color: #BC2B2B;"><b>Inactivo</b> </td>
                     @endif
     
                 </tbody>

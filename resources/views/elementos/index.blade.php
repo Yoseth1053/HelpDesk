@@ -24,8 +24,7 @@
                 <tr>
                     <th class="text-center">Id</th>
                     <th class="text-center">Nombre</th>
-                
-                    <!-- <th>Estado</th> -->
+                    <th class="text-center">Estado</th>
                     <th class="text-center">Opciones</th>
                 </tr>
             </thead>
@@ -33,8 +32,7 @@
                 <tr>
                     <th class="text-center">Id</th>
                     <th class="text-center">Nombre</th>
-                    
-                    <!-- <th>Estado</th> -->
+                    <th class="text-center">Estado</th>
                     <th class="text-center">Opciones</th>
                 </tr>
             </tfoot>
@@ -47,6 +45,11 @@
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         {{$elemento->nombre}}
                     </td>
+                    @if($elemento->estado == 1)
+                    <td style="color: green;"><b>Activo</b> </td>
+                    @else
+                    <td style="color: #BC2B2B;"><b>Inactivo</b> </td>
+                    @endif
                     
                     <td>
                         <div class="dropdown">
@@ -55,9 +58,17 @@
                                 <a class="dropdown-item" href="{{route('elementos.show',$elemento)}}" style="color:green"><i class="fas fa-binoculars" style="color:green"></i><b> Ver</b> </a>
                                 <a class="dropdown-item" href="{{route('elementos.edit',$elemento)}}" style="color:#157ECE"><i class="fas fa-edit" style="color:#157ECE"></i><b> Editar</b></a>
                                 @if ($elemento->estado == 1)
-                                <a class="dropdown-item" href="{{route('elementos.show',$elemento)}}" style="color:#C21F1F"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Desactivar</b></a>
+                                <form action="{{route('elemento.cambiarEst',$elemento)}}" method="POST" id="desactivar">
+                                @csrf
+                                   <button type="submit" class="btn dropdown-item" style="color:#C21F1F; text-align: left;"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Desactivar</b></button>
+                                </form>
+
                                 @else
-                                <a class="dropdown-item" href="{{route('elementos.show',$elemento)}}"><i class="fas fa-list-alt"></i><b> Activar</b></a>
+                                <form action="{{route('elemento.cambiarEst',$elemento)}}" method="POST" id="activar">
+                                @csrf
+                                   <button type="submit" class="btn dropdown-item button" style="color:green; text-align: left; "><i class="fas fa-power-off" style="color:green"></i><b> Activar</b></button>
+                                </form>
+
                                 @endif
 
                             </div>

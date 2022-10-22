@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegistroRequest;
+use App\Models\Cargo;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -37,12 +38,21 @@ class AuthController extends Controller
      */
     public function store(RegistroRequest $request)
     {
+        $verific = User::all();
+        if(count($verific) == 0)
+        {
+            $cargo = 1;
+        }
+        else{
+            $cargo = 2;
+        }
+        // dd(count($verific));
         $usuario = new User();
         $usuario->nombres = $request->nombres;
         $usuario->email = $request->email;
         $usuario->password = bcrypt($request->password);
         $usuario->estado = 1;
-        $usuario->idCargo = 2;
+        $usuario->idCargo = $cargo;
         $usuario->save();
         session()->flash("flash.banner","User creado satisfactoriamente");
         return Redirect::back();//

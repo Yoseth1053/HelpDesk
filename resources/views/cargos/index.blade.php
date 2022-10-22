@@ -62,13 +62,13 @@
                                 
                                 <form action="{{route('cambiarEst',$cargo)}}" method="POST" id="desactivar">
                                 @csrf
-                                   <button type="submit" class="btn dropdown-item" style="color:#C21F1F"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Desactivar</b></button>
+                                   <button type="submit" class="btn dropdown-item" style="color:#C21F1F; text-align: left;"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Desactivar</b></button>
                                 </form>
 
                                 @else
                                 <form action="{{route('cambiarEst',$cargo)}}" method="POST" id="activar">
                                 @csrf
-                                   <button type="submit" class="btn dropdown-item" style="color:green"><i class="fas fa-power-off" style="color:green"></i><b> Activar</b></button>
+                                   <button type="submit" class="btn dropdown-item button" style="color:green; text-align: left; "><i class="fas fa-power-off" style="color:green"></i><b> Activar</b></button>
                                 </form>
 
                                 @endif

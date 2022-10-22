@@ -1,4 +1,4 @@
-@include('layouts.app2')
+@include('layouts.app')
 
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm😛x-6 lg😛x-8">

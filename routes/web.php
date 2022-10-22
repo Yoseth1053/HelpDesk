@@ -46,9 +46,16 @@ Route::middleware([
     Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
 
     Route::resource('ambientes', AmbienteController::class);
+    Route::post('ambiente.cambiarEst/{ambiente}', [App\Http\Controllers\AmbienteController::class,'cambiarEst'])->name('ambiente.cambiarEst');
+
     Route::resource('inventarios', InventarioController::class);
+
     Route::resource('elementos', ElementoController::class);
+    Route::post('elemento.cambiarEst/{elemento}', [App\Http\Controllers\ElementoController::class,'cambiarEst'])->name('elemento.cambiarEst');
+
     Route::resource('estados', EstadoController::class);
+    Route::post('estado.cambiarEst/{estado}', [App\Http\Controllers\EstadoController::class,'cambiarEst'])->name('estado.cambiarEst');
+
 
     Route::resource('incidentes', IncidenteController::class);
     Route::get('Solucion/{incidente}', [App\Http\Controllers\IncidenteController::class,'solucion'])->name('Solucion');
@@ -56,6 +63,8 @@ Route::middleware([
     Route::get('exportarPDF', [App\Http\Controllers\InventarioController::class,'exportarPdf'])->name('exportarPDF');
     
     Route::resource('usuarios', UsuarioController::class);
+    Route::post('usuario.cambiarEst/{user}', [App\Http\Controllers\UsuarioController::class,'cambiarEst'])->name('usuario.cambiarEst');
+
 
     Route::resource('cargos', CargoController::class);
     Route::post('cambiarEst/{cargo}', [App\Http\Controllers\CargoController::class,'cambiarEst'])->name('cambiarEst');

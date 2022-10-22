@@ -93,4 +93,22 @@ class ElementoController extends Controller
     {
         //
     }
+
+    public function cambiarEst(Elemento $elemento)
+    {
+        if($elemento->estado == 1)
+        {
+            $elm = Elemento::where('id',$elemento->id)->first();
+            $elm->update(array('estado' => 0));
+            alert()->success('Exito','Elemento desactivado');
+
+        }
+        elseif($elemento->estado == 0)
+        {
+            $elm = Elemento::where('id',$elemento->id)->first();
+            $elm->update(array('estado' => 1));
+            alert()->success('Exito','Elemento desactivado');
+        }
+        return back();
+    }
 }

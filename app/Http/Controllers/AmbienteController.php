@@ -96,4 +96,22 @@ class AmbienteController extends Controller
     {
         //
     }
+
+    public function cambiarEst(Ambiente $ambiente)
+    {
+        if($ambiente->estado == 1)
+        {
+            $amb = Ambiente::where('id',$ambiente->id)->first();
+            $amb->update(array('estado' => 0));
+            alert()->success('Exito','Estado desactivado');
+
+        }
+        elseif($ambiente->estado == 0)
+        {
+            $amb = Ambiente::where('id',$ambiente->id)->first();
+            $amb->update(array('estado' => 1));
+            alert()->success('Exito','Estado desactivado');
+        }
+        return back();
+    }
 }

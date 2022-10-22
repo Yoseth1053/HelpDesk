@@ -45,12 +45,9 @@ class InventarioController extends Controller
     public function store(Request $request)
     {
         $inventario = new Inventario();
-        $inventario->cantidad=$request->cantidad;
+        $inventario->cantidad = $request->cantidad;
         $inventario->elemento_id = $request->elemento_id;
         $inventario->ambiente_id = $request->ambiente_id;
-        // $inventario->estado_id = 1;
-        // $input = $request->all();
-        // $inventario->fill($input);
         $inventario->save();
         
         return Redirect::route("inventarios.index");//

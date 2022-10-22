@@ -6,6 +6,7 @@ use App\Models\Cargo;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CargoController extends Controller
 {
@@ -44,7 +45,7 @@ class CargoController extends Controller
         $cargo->descripcion = $request->descripcion;
         $cargo->estado = 1;
         $cargo->save();
-        session()->flash("flash.banner","Cargo creado satisfactoriamente");
+        alert()->success('Exito','Cargo actualizado satisfactoriamente');
         return Redirect::route("cargos.index");////
     }
 
@@ -83,7 +84,7 @@ class CargoController extends Controller
         $cargo->descripcion = $request->descripcion;
         $cargo->nombre=$request->nombre;
         $cargo->save();
-        session()->flash("flash.banner","Cargo creado satisfactoriamente");
+        alert()->success('Exito','Cargo actualizado satisfactoriamente');
         return Redirect::route("cargos.index");///
     }
 
@@ -106,16 +107,16 @@ class CargoController extends Controller
         if($cargo->estado == 1)
         {
             $car = Cargo::where('id',$cargo->id)->first();
-            // dd($cargo->id);
             $car->update(array('estado' => 0));
+            alert()->success('Exito','Cargo desactivado');
+
         }
         elseif($cargo->estado == 0)
         {
-           $car = Cargo::where('id',$cargo->id)->first();
-        //    dd($cargo->id);
-           $car->update(array('estado' => 1));
+            $car = Cargo::where('id',$cargo->id)->first();
+            $car->update(array('estado' => 1));
+            alert()->success('Exito','Cargo desactivado');
         }
-        session()->flash("success","Cargo creado satisfactoriamente");
-        return Redirect::route("cargos.index");
+        return back();
     }
 }

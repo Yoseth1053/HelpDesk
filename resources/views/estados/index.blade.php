@@ -58,9 +58,17 @@
                                 <a class="dropdown-item" href="{{route('estados.show',$estado)}}" style="color:green"><i class="fas fa-binoculars" style="color:green"></i><b> Ver</b> </a>
                                 <a class="dropdown-item" href="{{route('estados.edit',$estado)}}" style="color:#157ECE"><i class="fas fa-edit" style="color:#157ECE"></i><b> Editar</b></a>
                                 @if ($estado->estado == 1)
-                                <a class="dropdown-item" href="{{route('estados.show',$estado)}}" style="color:#C21F1F"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Desactivar</b></a>
+                                <form action="{{route('estado.cambiarEst',$estado)}}" method="POST" id="desactivar">
+                                @csrf
+                                   <button type="submit" class="btn dropdown-item" style="color:#C21F1F; text-align: left;"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Desactivar</b></button>
+                                </form>
+
                                 @else
-                                <a class="dropdown-item" href="{{route('estados.show',$estado)}}"><i class="fas fa-list-alt"></i><b> Activar</b></a>
+                                <form action="{{route('estado.cambiarEst',$estado)}}" method="POST" id="activar">
+                                @csrf
+                                   <button type="submit" class="btn dropdown-item button" style="color:green; text-align: left; "><i class="fas fa-power-off" style="color:green"></i><b> Activar</b></button>
+                                </form>
+
                                 @endif
 
                             </div>

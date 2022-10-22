@@ -20,7 +20,7 @@
 
                 <div class="col-6" id="slcAmb" style="display:none;">
                     <div class="form-group " style="text-align: center;">
-                        <select name="ambiente" class="form-control">
+                        <select name="ambiente" class="form-control" required>
                             <option value="">-- Seleccione Un Ambiente --</option>
                             @foreach($ambientes as $ambiente)
                             <option value="{{$ambiente->id}}">{{$ambiente->nombre}}</option>

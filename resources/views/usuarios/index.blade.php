@@ -47,8 +47,10 @@
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         {{$usuario->nombres}}
                     </td>
-                    <td >
-                        {{$usuario->idCargo}}
+
+                    <?php $cargo = \App\Models\Cargo::where('id',$usuario->idCargo)->pluck('nombre')->first(); ?>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      {{$cargo}}
                     </td>
                     @if($usuario->estado == 1)
                     <td style="color: green;"><b>Activo</b> </td>
@@ -63,9 +65,17 @@
                                 <a class="dropdown-item" href="{{route('usuarios.show',$usuario)}}" style="color:green"><i class="fas fa-binoculars" style="color:green"></i><b> Ver</b> </a>
                                 <a class="dropdown-item" href="{{route('usuarios.edit',$usuario)}}" style="color:#157ECE"><i class="fas fa-edit" style="color:#157ECE"></i><b> Editar</b></a>
                                 @if ($usuario->estado == 1)
-                                <a class="dropdown-item" href="{{route('usuarios.show',$usuario)}}" style="color:#C21F1F"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Desactivar</b></a>
+                                <form action="{{route('usuario.cambiarEst',$usuario)}}" method="POST" id="desactivar">
+                                @csrf
+                                   <button type="submit" class="btn dropdown-item" style="color:#C21F1F; text-align: left;"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Desactivar</b></button>
+                                </form>
+
                                 @else
-                                <a class="dropdown-item" href="{{route('usuarios.show',$usuario)}}"><i class="fas fa-list-alt"></i><b> Activar</b></a>
+                                <form action="{{route('usuario.cambiarEst',$usuario)}}" method="POST" id="activar">
+                                @csrf
+                                   <button type="submit" class="btn dropdown-item button" style="color:green; text-align: left; "><i class="fas fa-power-off" style="color:green"></i><b> Activar</b></button>
+                                </form>
+
                                 @endif
 
                             </div>
@@ -79,4 +89,5 @@
     </div>
 
 </div>
+
 @include('layouts.footer')

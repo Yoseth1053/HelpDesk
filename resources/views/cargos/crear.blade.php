@@ -20,12 +20,16 @@
                             <label for="" ><b>Nombre</b> </label>
                             <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Ingrese Un Nombre" required>
                           </div>
+                          </div>
+
+                      <div class="row" style="justify-content: center;">
+
                         </div>
 
                         <div class="col-3">
                           <div class="form-group " style="text-align: center;">
                             <label  for="" ><b>Descripcion </b> </label>
-                            <input type="textArea" class="form-control" rows="3" id="descripcion" name="descripcion">
+                            <textarea rows="3" class="form-control" name="descripcion"  id="descripcion" required></textarea>
                           </div>
                         </div>
                         <hr>

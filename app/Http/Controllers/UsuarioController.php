@@ -63,7 +63,8 @@ class UsuarioController extends Controller
      */
     public function show(User $usuario)
     {
-        return view('usuarios.ver', compact('usuario'));//
+        $cargo = Cargo::where('id',$usuario->idCargo)->pluck('nombre')->first();
+        return view('usuarios.ver', compact('usuario','cargo'));//
     }
 
     /**
@@ -74,7 +75,9 @@ class UsuarioController extends Controller
      */
     public function edit(User $usuario)
     {
-        return view('usuarios.editar', compact('usuario'));//
+        $cargos = Cargo::all();
+
+        return view('usuarios.editar', compact('usuario','cargos'));//
     }
 
     /**
@@ -93,7 +96,7 @@ class UsuarioController extends Controller
         $usuario->direccion = $request->direccion;
         $usuario->telefono = $request->telefono;
         $usuario->email = $request->email;
-        $usuario->password = $request->password;
+        $usuario->password = bcrypt($request->password);
         $usuario->save();
         session()->flash("flash.banner","User creado satisfactoriamente");
         return Redirect::route("usuarios.index");///
@@ -109,4 +112,21 @@ class UsuarioController extends Controller
     {
         //
     }
+    public function cambiarEst(User $user)
+    {
+        if($user->estado == 1)
+        {
+            $us = User::where('id',$user->id)->first();
+            $us->update(array('estado' => 0));
+            alert()->success('Exito','Usuario desactivado Satisfactoriamente');
+
+        }
+        elseif($user->estado == 0)
+        {
+            $us = User::where('id',$user->id)->first();
+            $us->update(array('estado' => 1));
+            alert()->success('Exito','Usuario Activado Satisfactoriamente');
+        }
+        return back();
+}
 }
