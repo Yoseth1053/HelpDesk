@@ -115,7 +115,7 @@ class CargoController extends Controller
         //    dd($cargo->id);
            $car->update(array('estado' => 1));
         }
-        session()->flash("flash.banner","Cargo creado satisfactoriamente");
+        session()->flash("success","Cargo creado satisfactoriamente");
         return Redirect::route("cargos.index");
     }
 }

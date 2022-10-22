@@ -17,6 +17,7 @@
 
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/styleMenu.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/styleVerificPass.css') }}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     

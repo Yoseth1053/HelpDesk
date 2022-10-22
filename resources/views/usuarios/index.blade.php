@@ -45,10 +45,10 @@
                         {{$usuario->id}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$usuario->nombre}}
+                        {{$usuario->nombres}}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$usuario->cargo}}
+                    <td >
+                        {{$usuario->idCargo}}
                     </td>
                     @if($usuario->estado == 1)
                     <td style="color: green;"><b>Activo</b> </td>

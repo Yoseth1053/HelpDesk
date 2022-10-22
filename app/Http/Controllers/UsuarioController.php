@@ -41,16 +41,17 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $usuario = new User();
-        $usuario->nombres = $request->nombre;
+        $usuario->nombres = $request->nombres;
         $usuario->apellidos = $request->apellidos;
         $usuario->documento = $request->documento;
         $usuario->direccion = $request->direccion;
         $usuario->telefono = $request->telefono;
         $usuario->email = $request->email;
-        $usuario->password = $request->password;
+        $usuario->idCargo = $request->idCargo;
         $usuario->estado = 1;
+        $usuario->password = bcrypt($request->password);
         $usuario->save();
-        session()->flash("flash.banner","User creado satisfactoriamente");
+        session()->flash("success","User creado satisfactoriamente");
         return Redirect::route("usuarios.index");////
     }
 
