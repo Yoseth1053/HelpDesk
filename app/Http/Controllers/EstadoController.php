@@ -42,7 +42,7 @@ class EstadoController extends Controller
         $estado->nombre=$request->nombre;
         $estado->estado = 1;
         $estado->save();
-        session()->flash("flash.banner","Estado creado satisfactoriamente");
+        alert()->success('Exito','Estado Creado Satisfactoriamente');
         return Redirect::route("estados.index");////
     }
 
@@ -80,7 +80,7 @@ class EstadoController extends Controller
         
         $estado->nombre=$request->nombre;
         $estado->save();
-        session()->flash("flash.banner","Estado creado satisfactoriamente");
+        alert()->success('Exito','Estado Actualiado Satisfactoriamente');
         return Redirect::route("estados.index");///
     }
 

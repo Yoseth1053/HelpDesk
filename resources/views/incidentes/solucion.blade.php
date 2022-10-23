@@ -16,7 +16,7 @@
 
                 <div class="card-body" style="background-color: #CCCCCC;">
 
-                
+
                     <div class="card-header" style="justify-content: center; background-color:#F3F3F3; color:#E8700B;">
                         <h4 style="text-align: center;"><b>
                                 <font face="nirvana">Informacion
@@ -28,8 +28,23 @@
                     <br>
                     <!-- informacion -->
                     <div id="informacion" style="display: none;">
+                        <table id="" class="table table-striped table-light" cellspacing="0" width="100%">
+                            <thead class="thead-dark">
+                                <tr style="background-color: aqua;">
+                                    <th class="text-center">Reporta</th>
+                                    <th class="text-center">Cargo</th>
+
+                                    <!-- <th class="text-center">Estado</th> -->
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <td><b>{{$usuario}}</b></td>
+                                <td><b>{{$cargo}}</b></td>
+
+                            </tbody>
+                        </table>
                         <table class="table table-striped table-light" cellspacing="0" width="100%">
-                        <thead class="thead-dark">
+                            <thead class="thead-dark">
                                 <tr style="background-color: aqua;">
                                     <th class="text-center">Fecha Reporte</th>
                                     <th class="text-center">Hora Reporte</th>
@@ -40,12 +55,12 @@
                                 <td><b>{{$incidente->fecha}}</b></td>
                                 <td><b>{{$incidente->hora}}</b></td>
                                 @if($incidente->estado->nombre == 'Solicitado')
-                                    <td style="color: #BC2B2B;"><b>{{$incidente->estado->nombre}}</b> </td>
-                                    @elseif($incidente->estado->nombre == 'Agendado')
-                                    <td style="color: #0A8BAE;"><b>{{$incidente->estado->nombre}}</b> </td>
-                                    @elseif($incidente->estado->nombre == 'Solucionado')
-                                    <td style="color: green;"><b>{{$incidente->estado->nombre}}</b> </td>
-                                    @endif
+                                <td style="color: #BC2B2B;"><b>{{$incidente->estado->nombre}}</b> </td>
+                                @elseif($incidente->estado->nombre == 'Agendado')
+                                <td style="color: #0A8BAE;"><b>{{$incidente->estado->nombre}}</b> </td>
+                                @elseif($incidente->estado->nombre == 'Solucionado')
+                                <td style="color: green;"><b>{{$incidente->estado->nombre}}</b> </td>
+                                @endif
                             </tbody>
                             <thead class="thead-dark">
                                 <tr style="background-color: aqua;">
@@ -56,10 +71,10 @@
                                 <td colspan="3"><b>{{$incidente->descripcion}}</b></td>
                             </tbody>
                         </table>
-                    <!-- informacion -->
-                    
-                    <!-- Agenda -->
-                    @if($incidente->fechaProg != null)
+                        <!-- informacion -->
+
+                        <!-- Agenda -->
+                        @if($incidente->fechaProg != null)
                         <table class="table table-striped table-light" cellspacing="0" width="100%">
                             <thead class="thead-dark">
                                 <tr style="background-color: aqua;">
@@ -80,10 +95,10 @@
                                 <td colspan="2"><b>{{$incidente->observacion}}</b></td>
                             </tbody>
                         </table>
-                       <br>
-                    
-                    <!-- Agenda -->
-                    @endif
+                        <br>
+
+                        <!-- Agenda -->
+                        @endif
                     </div>
                     <div class="card-header" style="justify-content: center; background-color:#F3F3F3; color:#E8700B;">
                         <h4 style="text-align: center;"><b>
@@ -97,14 +112,14 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for=""><b>Fecha</b></label>
-                                <input type="date" value="<?php echo $fecha?>" class="form-control" name="fechaSol" required>
+                                <input type="date" value="<?php echo $fecha ?>" class="form-control" name="fechaSol" required>
                             </div>
                         </div>
 
                         <div class="col-3">
                             <div class="form-group">
                                 <label for=""><b>Hora</b></label>
-                                <input type="time" value="<?php echo $hora?>" class="form-control" name="horaSol" required>
+                                <input type="time" value="<?php echo $hora ?>" class="form-control" name="horaSol" required>
                             </div>
                         </div>
                     </div>
@@ -121,10 +136,10 @@
 
 
                     <hr>
-                    
+
                     <div class="row" style="justify-content: center;">
                         <div class="col-3" style="text-align: center;">
-                            <a onClick="history.go(-1);" style="background-color: #BC2B2B; color:white" class="btn"> Volver</button> </a>
+                            <a href="{{ route('incidentes.index') }}" style="background-color: #BC2B2B; color:white" class="btn"> Volver</button> </a>
                         </div>
 
                         <div class="col-3" style="text-align: center;">
@@ -132,7 +147,7 @@
                         </div>
                     </div>
                     <br>
-                   
+
 
                 </div>
         </div>

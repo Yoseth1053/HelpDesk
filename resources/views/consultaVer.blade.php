@@ -42,6 +42,23 @@
                             <font face="nirvana">Informacion General</font>
                         </b> </h4>
                 </div>
+
+                <br>
+                <table id="" class="table table-striped table-light" cellspacing="0" width="100%">
+                    <thead class="thead-dark">
+                        <tr style="background-color: aqua;">
+                            <th class="text-center">Reporta</th>
+                            <th class="text-center">Cargo</th>
+
+                            <!-- <th class="text-center">Estado</th> -->
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <td><b>{{$usuario}}</b></td>
+                        <td><b>{{$cargo}}</b></td>
+
+                    </tbody>
+                </table>
                 <br>
                 <table id="" class="table table-striped table-light" cellspacing="0" width="100%">
                     <thead class="thead-dark">

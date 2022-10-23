@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ambiente;
+use App\Models\Cargo;
 use App\Models\Incidente;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class IncidenteController extends Controller
@@ -48,14 +51,23 @@ class IncidenteController extends Controller
         $incidente = new Incidente();
         $incidente->fecha = $request->fecha;
         $incidente->hora = $request->hora;
+        $incidente->idUsuario = Auth::user()->id;
         $incidente->ambiente_id = $request->ambiente;
         $incidente->descripcion = $request->descripcion;
         $incidente->estado_id = 1;
         // $input = $request->all();
         // $incidente->fill($input);
         $incidente->save();
-        session()->flash("flash.banner","Incidente creado satisfactoriamente");
-        return Redirect::back();
+        alert()->success('Exito','Su Numero de ticket para consulta es: '.$incidente->id);
+
+
+        if(Auth::user()->idCargo == 1){
+            return Redirect::route("incidentes.index");//
+        }
+        else{
+            return view('dashboard');
+        }
+
     }
 
     public function solucion(Incidente $incidente)
@@ -63,8 +75,11 @@ class IncidenteController extends Controller
         $fecha = Carbon::now()->format('d-m-Y');
         $fecha = date('Y-m-d', strtotime($fecha));
         $hora = Carbon::now()->format('H:i:s');
+        $usuario = User::where('id',$incidente->idUsuario)->pluck('nombres')->first();
+        $idCargo = User::where('id',$incidente->idUsuario)->pluck('idCargo')->first();
+        $cargo = Cargo::where('id',$idCargo)->pluck('nombre')->first();
         // $hora = Carbon::now()->format('H:i:s');
-        return view('incidentes.solucion', compact('incidente','fecha','hora'));//
+        return view('incidentes.solucion', compact('incidente','fecha','hora','usuario','cargo'));//
     }
 
     public function solucionStore(Request $request, Incidente $incidente)
@@ -75,7 +90,7 @@ class IncidenteController extends Controller
             $incidente->estado_id = 3;
             $incidente->save();   
 
-            session()->flash("flash.banner","Incidente Solucionado satisfactoriamente");
+            alert()->success('Exito','Incidencia N°: '.$incidente->id.' Solucionada !');
             return Redirect::route("incidentes.index");//
     }
 
@@ -87,7 +102,10 @@ class IncidenteController extends Controller
      */
     public function show(Incidente $incidente)
     {
-        return view('incidentes.ver', compact('incidente'));//
+        $usuario = User::where('id',$incidente->idUsuario)->pluck('nombres')->first();
+        $idCargo = User::where('id',$incidente->idUsuario)->pluck('idCargo')->first();
+        $cargo = Cargo::where('id',$idCargo)->pluck('nombre')->first();
+        return view('incidentes.ver', compact('incidente','usuario','cargo'));//
     }
 
     /**
@@ -101,7 +119,10 @@ class IncidenteController extends Controller
         $fecha = Carbon::now()->format('d-m-Y');
         $fecha = date('Y-m-d', strtotime($fecha));
         $hora = Carbon::now()->format('H:i:s');
-        return view('incidentes.agenda', compact('incidente','fecha','hora'));//
+        $usuario = User::where('id',$incidente->idUsuario)->pluck('nombres')->first();
+        $idCargo = User::where('id',$incidente->idUsuario)->pluck('idCargo')->first();
+        $cargo = Cargo::where('id',$idCargo)->pluck('nombre')->first();
+        return view('incidentes.agenda', compact('incidente','fecha','hora','usuario','cargo'));//
     }
 
     /**
@@ -113,8 +134,7 @@ class IncidenteController extends Controller
      */
     public function update(Request $request, Incidente $incidente)
     {
-        if($request->fechaRespuesta != null)
-        {
+        
             $incidente->fechaRespuesta = $request->fechaRespuesta; 
             $incidente->horaRespuesta = $request->horaRespuesta;
             $incidente->fechaProg = $request->fechaProg;
@@ -122,22 +142,30 @@ class IncidenteController extends Controller
             $incidente->observacion = $request->observacion;
             $incidente->estado_id = 2;
             $incidente->save();        
-            session()->flash("flash.banner","Incidente Agendado satisfactoriamente");
-        }
+            alert()->success('Exito','Incidencia N°: '.$incidente->id.' Agendada !');
 
         return Redirect::route("incidentes.index");//
     }
 
     public function consulta()
     {
+        
         return view('consulta');//
     }
 
     public function procesar(Request $request)
     {
-        $incidente = Incidente::find($request->num);
-        // dd($incidente );
-        return view('consultaVer', compact('incidente'));
+        $incidente = Incidente::where('id',$request->num)->first();
+        // dd($incidente);
+        if($incidente == null)
+        {
+            alert()->error('Error','Ingrese un N° Ticket Valido!');
+            return Redirect::route("consulta");
+        }
+        $usuario = User::where('id',$incidente->idUsuario)->pluck('nombres')->first();
+        $idCargo = User::where('id',$incidente->idUsuario)->pluck('idCargo')->first();
+        $cargo = Cargo::where('id',$idCargo)->pluck('nombre')->first();
+        return view('consultaVer', compact('incidente','usuario','cargo'));
 
     }
 

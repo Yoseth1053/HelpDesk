@@ -3,14 +3,14 @@
 <div class="py-12">
   <div class="max-w-7xl mx-auto sm😛x-6 lg😛x-8">
     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-      <form action="{{ route('usuarios.update', $usuario) }}" method="post">
+      <form action="{{ route('usuarios.update', $usuario) }}" method="post" enctype="multipart/form-data">
         @method('PUT') {{-- Se utiliza para cargar el metodo update --}}
 
         @csrf
         <br>
         <div class="card-header" style="justify-content: center; background-color:#33A2C5; color:white;">
           <h1 style="text-align: center;"><i class="fas fa-file-alt"></i><b>
-              <font face="nirvana">Editar Inventario</font>
+              <font face="nirvana">Editar Usuario</font>
             </b> </h1>
         </div>
         <br>
@@ -22,9 +22,14 @@
             <div class="col-3">
               <div class="form-group " style="text-align: center;">
                 <label for=""><b>Foto de perfil </b></label>
-                <a class="navbar-brand ps-3"><img style="align-items: center;" src="{{ asset('img/sinFoto.jpg') }}" width="120" height="120">
-                </a>
-                <input type="file" name="" value="">
+                @if($usuario->profile_photo_path != null)
+                <a class="navbar-brand ps-3"><img style="align-items: center;" src="{{ asset('img/usuarios/'.$usuario->profile_photo_path) }}" width="120" height="120">
+                    </a>
+                @else
+                    <a class="navbar-brand ps-3"><img style="align-items: center;" src="{{ asset('img/usuarios/sinFoto.jpg') }}" width="120" height="120">
+                    </a>
+                @endif
+                <input type="file" name="adjunto[]" value="" multiple>
               </div>
             </div>
 
@@ -34,7 +39,7 @@
 
             <div class="col-3">
               <div class="form-group " style="text-align: center;">
-                <label for=""><b>Nombres </b> <b style="color: red;">(*)</b></label>
+                <label for=""><b>Nombres </b> </label>
                 <input type="text" value="{{$usuario->nombres}}" class="form-control" rows="3" id="nombres" name="nombres" required>
               </div>
             </div>
@@ -48,8 +53,8 @@
 
             <div class="col-3">
               <div class="form-group " style="text-align: center;">
-                <label for=""><b>Documento </b> <b style="color: red;">(*)</b></label>
-                <input type="text" value="{{$usuario->documento}}" class="form-control" rows="3" id="documento" name="documento" required>
+                <label for=""><b>Documento </b> </label>
+                <input type="text" value="{{$usuario->documento}}" class="form-control" rows="3" id="documento" name="documento">
               </div>
             </div>
           </div>
@@ -65,18 +70,14 @@
 
             <div class="col-3">
               <div class="form-group " style="text-align: center;">
-                <label for=""><b>Teléfono </b> <b style="color: red;">(*)</b></label>
-                <input type="text" value="{{$usuario->telefono}}" class="form-control" rows="3" id="telefono" name="telefono" required>
+                <label for=""><b>Teléfono </b> </label>
+                <input type="text" value="{{$usuario->telefono}}" class="form-control" rows="3" id="telefono" name="telefono">
               </div>
             </div>
 
-
-          </div>
-
-          <div class="row" style="justify-content: center;">
             <div class="col-3">
               <div class="form-group " style="text-align: center;">
-                <label for=""><b>Cargo </b> <b style="color: red;">(*)</b></label>
+                <label for=""><b>Cargo </b> </label>
                 <select class="form-control" name="idCargo" id="idCargo" required>
                   <option value="">-- Seleccionar --</option>
 
@@ -88,11 +89,29 @@
                 </select>
               </div>
             </div>
-            
+          </div>
+
+
+          <div class="row" style="justify-content: center;">
+
             <div class="col-3">
               <div class="form-group " style="text-align: center;">
-                <label for=""><b>Email </b> <b style="color: red;">(*)</b></label>
+                <label for=""><b>Email </b> </label>
                 <input type="text" value="{{$usuario->email}}" class="form-control" rows="3" id="email" name="email" required>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="form-group " style="text-align: center;">
+                <label for=""><b>Contraseña </b> </label>
+                <input type="password" class="form-control" rows="3" id="password" name="password" >
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="form-group " style="text-align: center;">
+                <label for=""><b>Confirmar Contraseña </b></label>
+                <input type="password" class="form-control" rows="3" id="passwordConfirm" name="passwordConfirm" >
               </div>
             </div>
 
@@ -103,7 +122,7 @@
           <br>
           <div class="row" style="justify-content: center;">
             <div class="col-3" style="text-align: center;">
-              <a onClick="history.go(-1);" style="background-color: #BC2B2B; color:white" class="btn"> Volver</button> </a>
+              <a href="{{ route('usuarios.index') }}" style="background-color: #BC2B2B; color:white" class="btn"> Volver</button> </a>
             </div>
 
             <div class="col-3" style="text-align: center;">

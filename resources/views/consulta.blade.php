@@ -18,6 +18,9 @@
     <link href="{{ asset('css/styleMenu.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
+<main>
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+</main>
 
 <body class="sb-nav-fixed">
 
@@ -50,7 +53,7 @@
                         <div class="col-6">
                             <div class="form-group" style="text-align: center;">
                                 <label for="descripcion" style="text-align: center;"><b>Ingrese el N° de Ticket</b> </label>
-                                <input type="text" value="1" class="form-control" name="num" id="num" required>
+                                <input type="text" value="" class="form-control" name="num" id="num" required>
                             </div>
                         </div>
                     </div>

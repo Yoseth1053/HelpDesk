@@ -18,6 +18,7 @@ class Incidente extends Model
         'id',
         'hora',
         'fecha',
+        'idUsuario',
         'ambiente_id',
         'descripcion',
         'estado_id',
@@ -41,5 +42,10 @@ class Incidente extends Model
     public function ambiente()
     {
         return $this->belongsTo(Ambiente::class);
+    }
+
+    public function usuario()
+    {
+        return $this->belongsTo(User::class);
     }
 }

@@ -49,7 +49,7 @@ class InventarioController extends Controller
         $inventario->elemento_id = $request->elemento_id;
         $inventario->ambiente_id = $request->ambiente_id;
         $inventario->save();
-        
+        alert()->success('Exito','Inventario Creado Satisfactoriamente');
         return Redirect::route("inventarios.index");//
     }
 
@@ -90,7 +90,7 @@ class InventarioController extends Controller
         $inventario->elemento_id = $request->elemento_id;
         $inventario->ambiente_id = $request->ambiente_id;
         $inventario->save();
-        session()->flash("flash.banner","Inventario creado satisfactoriamente");
+        alert()->success('Exito','Inventario Actualizado Satisfactoriamente');
         return Redirect::route("inventarios.index");//
     }
 

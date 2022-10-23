@@ -23,8 +23,13 @@
 
             <div class="col-3">
                 <div class="form-group " style="text-align: center;">
-                    <a class="navbar-brand ps-3"><img style="align-items: center;" src="{{ asset('img/sinFoto.jpg') }}" width="120" height="120">
+                @if($usuario->profile_photo_path != null)
+                <a class="navbar-brand ps-3"><img style="align-items: center;" src="{{ asset('img/usuarios/'.$usuario->profile_photo_path) }}" width="120" height="120">
                     </a>
+                @else
+                    <a class="navbar-brand ps-3"><img style="align-items: center;" src="{{ asset('img/usuarios/sinFoto.jpg') }}" width="120" height="120">
+                    </a>
+                @endif
                 </div>
             </div>
 
@@ -32,17 +37,17 @@
         <table id="" class="table table-striped table-light" cellspacing="0" width="100%">
             <thead style="color:BBC5C7">
                 <tr style="background-color: aqua;">
-                    <th class="text-center">Id</th>
                     <th class="text-center">Nombres</th>
                     <th class="text-center">Apellidos</th>
                     <th class="text-center">Documento</th>
+                    <th class="text-center">Correo</th>
                 </tr>
             </thead>
             <tbody class="text-center">
-                <td>{{$usuario->id}}</td>
                 <td>{{$usuario->nombres}}</td>
                 <td>{{$usuario->apellidos}}</td>
                 <td>{{$usuario->documento}}</td>
+                <td>{{$usuario->email}}</td>
 
 
             </tbody>
@@ -68,26 +73,7 @@
                 @endif
             </tbody>
         </table>
-        <br>
-
-        <div style="justify-content: center; color:#33A2C5;">
-            <h3 style="text-align: center;"><b>
-                    <font face="nirvana">Informacion De Usuario</font>
-                </b> </h3>
-        </div>
-        <table id="" class="table table-striped table-light" cellspacing="0" width="100%">
-            <thead style="color:BBC5C7">
-                <tr style="background-color: aqua;">
-                    <th class="text-center">Email</th>
-                    <th class="text-center">Contraseña</th>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-                <td>{{$usuario->email}}</td>
-                <td>{{$usuario->password}}</td>
-            </tbody>
-
-        </table>
+        
         <br>
         <div class="row" style="justify-content: center;">
             <div class="col-3" style="text-align: center;">

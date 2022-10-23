@@ -42,7 +42,7 @@ class ElementoController extends Controller
         $elemento -> nombre = $request->nombre;
         $elemento -> estado = 1;
         $elemento->save();
-        session()->flash("flash.banner","Elemento creado satisfactoriamente");
+        alert()->success('Exito','Elemento Creado Satisfactoriamente');
         return Redirect::route("elementos.index");//////
     }
 
@@ -79,7 +79,8 @@ class ElementoController extends Controller
     {
         $elemento->nombre=$request->nombre;
         $elemento->save();
-        session()->flash("flash.banner","Elemento creado satisfactoriamente");
+        alert()->success('Exito','Elemento Actualizado Satisfactoriamente');
+
         return Redirect::route("elementos.index");//
     }
 

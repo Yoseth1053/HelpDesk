@@ -1,5 +1,5 @@
 @include('layouts.app')
-
+<?php use Illuminate\Support\Facades\Auth; ?>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm😛x-6 lg😛x-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -31,6 +31,23 @@
                     </div>
 
                     <div class="row" style="justify-content: center; text-align:center;">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="" >Usuario</label>
+                                <input class="form-control" type="text" name="" value="{{Auth::user()->nombres}}" readonly>
+                            </div> 
+                        </div>
+
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="">Cargo</label>
+                                <?php $cargo = App\Models\Cargo::where('id',Auth::user()->idCargo)->pluck('nombre')->first()?>
+                                <input type="text" value="{{$cargo}}" class="form-control" name="cargo" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="justify-content: center; text-align:center;">
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="ambiente_id">Ambiente</label>
@@ -47,7 +64,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="descripcion">Descripción Del Incidente</label>
-                                    <input type="textArea" class="form-control" name="descripcion" required>
+                                    <textarea rows="3" name="descripcion" class="form-control" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +75,7 @@
                         <br>
                         <div class="row" style="justify-content: center;">
                           <div class="col-3" style="text-align: center;" >
-                            <a onClick="history.go(-1);" style="background-color: #BC2B2B; color:white"  class="btn"> Volver</button> </a>
+                            <a href="{{ route('incidentes.index') }}" style="background-color: #BC2B2B; color:white"  class="btn"> Volver</button> </a>
                           </div>
 
                           <div class="col-3" style="text-align: center;" >

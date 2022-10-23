@@ -19,6 +19,9 @@ return new class extends Migration
             $table->time('hora');
             $table->date('fecha');
 
+            $table->unsignedBigInteger('idUsuario');
+            $table->foreign('idUsuario')->references('id')->on('users');
+
             $table->unsignedBigInteger('ambiente_id');
             $table->foreign('ambiente_id')->references('id')->on('ambientes');
 

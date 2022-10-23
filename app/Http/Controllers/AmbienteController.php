@@ -43,7 +43,7 @@ class AmbienteController extends Controller
         $ambiente->ubicacion = $request->ubicacion;
         $ambiente->estado = 1;
         $ambiente->save();
-        session()->flash("flash.banner","Ambiente creado satisfactoriamente");
+        alert()->success('Exito','Ambiente Creado Satisfactoriamente');
         return Redirect::route("ambientes.index");////
     }
 
@@ -82,7 +82,7 @@ class AmbienteController extends Controller
         $ambiente->nombre=$request->nombre;
         $ambiente->ubicacion = $request->ubicacion;
         $ambiente->save();
-        session()->flash("flash.banner","Ambiente creado satisfactoriamente");
+        alert()->success('Exito','Ambiente Actualizado Satisfactoriamente');
         return Redirect::route("ambientes.index");///
     }
 

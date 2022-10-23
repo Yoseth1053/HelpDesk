@@ -6,6 +6,7 @@ use App\Models\Cargo;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class UsuarioController extends Controller
 {
@@ -49,9 +50,17 @@ class UsuarioController extends Controller
         $usuario->email = $request->email;
         $usuario->idCargo = $request->idCargo;
         $usuario->estado = 1;
-        $usuario->password = bcrypt($request->password);
+        if($request->password == $request->passwordConfirm)
+        {
+          $usuario->password = bcrypt($request->password);
+        }
+        else
+        {
+            alert()->error('Alerta','Las contraseñas no coinciden');
+            return back();///
+        }
         $usuario->save();
-        session()->flash("success","User creado satisfactoriamente");
+        alert()->success('Exito','Usuario Creado Satisfactoriamente');
         return Redirect::route("usuarios.index");////
     }
 
@@ -89,17 +98,41 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, User $usuario)
     {
+        if($request->hasFile('adjunto')){
+            $adjuntos = $request->adjunto;
+
+            foreach($adjuntos as $adjunto)
+            {
+                
+                
+                $path = Storage::disk('usuarios')->putFileAs('',$adjunto,$usuario->id.'-'.$usuario->nombres.'.jpg');
+                $usuario->profile_photo_path = $usuario->id.'-'.$usuario->nombres.'.jpg';
+            } 
+        }
         
-        $usuario->nombres = $request->nombre;
+        $usuario->nombres = $request->nombres;
         $usuario->apellidos = $request->apellidos;
         $usuario->documento = $request->documento;
         $usuario->direccion = $request->direccion;
         $usuario->telefono = $request->telefono;
         $usuario->email = $request->email;
-        $usuario->password = bcrypt($request->password);
+        $usuario->idCargo = $request->idCargo;
+        if($request->password != null || $request->passwordConfirm != null)
+        {
+            if($request->password == $request->passwordConfirm)
+            {
+              $usuario->password = bcrypt($request->password);
+            }
+            else
+            {
+                $usuario->save();
+                alert()->error('Alerta','Las contraseñas no coinciden');
+                return back();///
+            }
+        }
         $usuario->save();
-        session()->flash("flash.banner","User creado satisfactoriamente");
-        return Redirect::route("usuarios.index");///
+        alert()->success('Exito','Usuario Actualizado Satisfactoriamente');
+        return back();///
     }
 
     /**
@@ -118,7 +151,7 @@ class UsuarioController extends Controller
         {
             $us = User::where('id',$user->id)->first();
             $us->update(array('estado' => 0));
-            alert()->success('Exito','Usuario desactivado Satisfactoriamente');
+            alert()->success('Exito','Usuario Desactivado Satisfactoriamente');
 
         }
         elseif($user->estado == 0)
