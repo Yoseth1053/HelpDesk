@@ -102,7 +102,16 @@ class InventarioController extends Controller
      */
     public function destroy(Inventario $inventario)
     {
-        //
+        //$inventario->delete();
+    }
+
+    public function destroy2(Inventario $inventario)
+    {
+        // dd($inventario);
+        $inventario->delete();
+        alert()->success('Exito','Registro Eliminado Satisfactoriamente');
+        return Redirect::route("inventarios.index");//
+
     }
 
     public function exportarPdf(Request $request)

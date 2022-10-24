@@ -103,14 +103,14 @@ class AmbienteController extends Controller
         {
             $amb = Ambiente::where('id',$ambiente->id)->first();
             $amb->update(array('estado' => 0));
-            alert()->success('Exito','Estado desactivado');
+            alert()->success('Exito','Ambiente desactivado');
 
         }
         elseif($ambiente->estado == 0)
         {
             $amb = Ambiente::where('id',$ambiente->id)->first();
             $amb->update(array('estado' => 1));
-            alert()->success('Exito','Estado desactivado');
+            alert()->success('Exito','Ambiente Activado');
         }
         return back();
     }

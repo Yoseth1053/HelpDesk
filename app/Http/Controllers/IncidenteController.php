@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Incidentes;
 use App\Models\Ambiente;
 use App\Models\Cargo;
 use App\Models\Incidente;
@@ -9,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
 class IncidenteController extends Controller
@@ -48,6 +50,21 @@ class IncidenteController extends Controller
      */
     public function store(Request $request)
     {
+        // $data = [];
+        // $emailPara = 'ywmateus@misena.edu.co';
+        // $emailde = 'ywmateus@misena.edu.co';
+        // $emailNombre = 'Ejemeplo';
+
+
+        // Mail::to('yoseth.m97@gmail.com')->send(new Incidentes());
+        // Mail::send('mail.incidentes',$data,function($message) use ($emailPara,$emailNombre,$emailde){
+
+        //     $message->subject($emailNombre); 
+        //     $message->from($emailde); 
+        //     $message->to($emailPara); 
+        // });
+
+        // dd('exito');
         $incidente = new Incidente();
         $incidente->fecha = $request->fecha;
         $incidente->hora = $request->hora;

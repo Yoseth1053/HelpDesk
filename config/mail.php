@@ -15,6 +15,9 @@ return [
 
     'default' => env('MAIL_MAILER', 'smtp'),
 
+    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'port' => env('MAIL_PORT', 587),
+
     /*
     |--------------------------------------------------------------------------
     | Mailer Configurations
@@ -39,8 +42,8 @@ return [
             'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'username' => env('ywmateus@misena.edu.co'),
+            'password' => env('1053858611'),
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
         ],
@@ -92,7 +95,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'ywmateus@misena.edu.co'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 

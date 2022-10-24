@@ -101,14 +101,14 @@ class EstadoController extends Controller
         {
             $est = Estado::where('id',$estado->id)->first();
             $est->update(array('estado' => 0));
-            alert()->success('Exito','Estado desactivado');
+            alert()->success('Exito','Estado Desactivado');
 
         }
         elseif($estado->estado == 0)
         {
             $est = Estado::where('id',$estado->id)->first();
             $est->update(array('estado' => 1));
-            alert()->success('Exito','Estado desactivado');
+            alert()->success('Exito','Estado Activado');
         }
         return back();
 }

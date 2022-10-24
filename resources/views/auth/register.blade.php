@@ -1,9 +1,13 @@
-
+<title>Registrar</title>
+<link rel="icon" type="image/png" href="{{ asset('img/LogoSenaBlanco.png') }}">
 <header>
 <!-- importamos estilos -->
     <link href="{{ asset('css/styleVerificPass.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/styleLogin.css') }}" rel="stylesheet" />
 </header>
+<main>
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+</main>
 <x-guest-layout>
 
 

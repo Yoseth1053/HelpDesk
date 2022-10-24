@@ -49,6 +49,8 @@ Route::middleware([
     Route::post('ambiente.cambiarEst/{ambiente}', [App\Http\Controllers\AmbienteController::class,'cambiarEst'])->name('ambiente.cambiarEst');
 
     Route::resource('inventarios', InventarioController::class);
+    Route::post('eliminar/{inventario}', [App\Http\Controllers\InventarioController::class,'destroy2'])->name('eliminar');
+
 
     Route::resource('elementos', ElementoController::class);
     Route::post('elemento.cambiarEst/{elemento}', [App\Http\Controllers\ElementoController::class,'cambiarEst'])->name('elemento.cambiarEst');

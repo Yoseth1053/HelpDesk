@@ -7,6 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>HelpDesk</title>
+        <link rel="icon" type="image/png" href="{{ asset('img/logoSenaBlanco.png') }}">
         <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> -->
         <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
@@ -24,8 +25,9 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html"><img style="align-items: center;" src="{{ asset('img/Loggo.png') }}" width="80" height="48">
-            <font face="nirvana" color="silver"> HelpDesk</font></a>
+            
+            <a class="navbar-brand ps-3" href="index.html"><img style="align-items: center;" src="{{ asset('img/logoSenaBlanco.png') }}" width="50" height="40">
+            <font face="nirvana" color="white"> HelpDesk</font></a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->

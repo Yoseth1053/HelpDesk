@@ -101,14 +101,14 @@ class ElementoController extends Controller
         {
             $elm = Elemento::where('id',$elemento->id)->first();
             $elm->update(array('estado' => 0));
-            alert()->success('Exito','Elemento desactivado');
+            alert()->success('Exito','Elemento Desactivado');
 
         }
         elseif($elemento->estado == 0)
         {
             $elm = Elemento::where('id',$elemento->id)->first();
             $elm->update(array('estado' => 1));
-            alert()->success('Exito','Elemento desactivado');
+            alert()->success('Exito','Elemento Activado');
         }
         return back();
     }

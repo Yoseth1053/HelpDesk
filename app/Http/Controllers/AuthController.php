@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegistroRequest;
 use App\Models\Cargo;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -38,24 +39,34 @@ class AuthController extends Controller
      */
     public function store(RegistroRequest $request)
     {
-        $verific = User::all();
-        if(count($verific) == 0)
+        try {
+
+           $verific = User::all();
+           if(count($verific) == 0)
+           {
+               $cargo = 1;
+           }
+           else{
+               $cargo = 2;
+           }
+           // dd(count($verific));
+           $usuario = new User();
+           $usuario->nombres = $request->nombres;
+           $usuario->email = $request->email;
+           $usuario->password = bcrypt($request->password);
+           $usuario->estado = 1;
+           $usuario->idCargo = $cargo;
+           $usuario->save();
+           alert()->success('Exito','Usuario Creado satisfactoriamente');
+           return view('auth.login');//
+        } 
+        catch (Exception $e) 
         {
-            $cargo = 1;
+            alert()->error('Error','El correo ingresado ya esta registrado');
+            return view('auth.register');//
         }
-        else{
-            $cargo = 2;
-        }
-        // dd(count($verific));
-        $usuario = new User();
-        $usuario->nombres = $request->nombres;
-        $usuario->email = $request->email;
-        $usuario->password = bcrypt($request->password);
-        $usuario->estado = 1;
-        $usuario->idCargo = $cargo;
-        $usuario->save();
-        session()->flash("flash.banner","User creado satisfactoriamente");
-        return Redirect::back();//
+        
+        
     }
 
     /**

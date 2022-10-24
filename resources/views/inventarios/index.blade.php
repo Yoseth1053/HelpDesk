@@ -89,12 +89,13 @@
                             <div class="dropdown-content">
                                 <a class="dropdown-item" href="{{route('inventarios.show',$inventario)}}" style="color:green"><i class="fas fa-binoculars" style="color:green"></i><b> Ver</b> </a>
                                 <a class="dropdown-item" href="{{route('inventarios.edit',$inventario)}}" style="color:#157ECE"><i class="fas fa-edit" style="color:#157ECE"></i><b> Editar</b></a>
-                                @if ($inventario->estado == 1)
-                                <a class="dropdown-item" href="{{route('inventarios.show',$inventario)}}" style="color:#C21F1F"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Desactivar</b></a>
-                                @else
-                                <a class="dropdown-item" href="{{route('inventarios.show',$inventario)}}"><i class="fas fa-list-alt"></i><b> Activar</b></a>
-                                @endif
+                               
+                                <form action="{{route('eliminar',$inventario)}}" method="post" id="desactivar">
+                                @csrf
+                                   <button onclick="return confirm('Esta Seguro De Eliminar Este Registro ?')" type="submit" class="btn dropdown-item" style="color:#C21F1F; text-align: left;"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Eliminar</b></button>
+                                </form>
 
+                                
                             </div>
                         </div>
                     </td>

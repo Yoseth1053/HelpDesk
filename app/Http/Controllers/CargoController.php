@@ -108,14 +108,14 @@ class CargoController extends Controller
         {
             $car = Cargo::where('id',$cargo->id)->first();
             $car->update(array('estado' => 0));
-            alert()->success('Exito','Cargo desactivado');
+            alert()->success('Exito','Cargo Desactivado');
 
         }
         elseif($cargo->estado == 0)
         {
             $car = Cargo::where('id',$cargo->id)->first();
             $car->update(array('estado' => 1));
-            alert()->success('Exito','Cargo desactivado');
+            alert()->success('Exito','Cargo Activado');
         }
         return back();
     }
