@@ -76,7 +76,7 @@
 
                             <!-- Usuarios -->
                             <a class="nav-link collapsed" href="{{ route('usuarios.index') }}">
-                                <div class="sb-nav-link-icon"><i class="far fa-address-book" style="color:#188755;" ></i></i></div>
+                                <div class="sb-nav-link-icon"><i class="far fa-address-book" style="color:#095F71;" ></i></i></div>
                                 Usuarios
                             </a>
                             

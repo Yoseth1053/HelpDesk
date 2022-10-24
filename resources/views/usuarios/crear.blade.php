@@ -7,7 +7,7 @@
         @csrf
         <br>
         <div class="card-header" style="justify-content: center; background-color:#33A2C5; color:white;">
-          <h1 style="text-align: center;"><i class="fas fa-file-alt"></i><b>
+          <h1 style="text-align: center;"><i class="far fa-address-book"></i><b>
               <font face="nirvana">Crear Usuario</font>
             </b> </h1>
         </div>
