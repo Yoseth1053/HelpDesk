@@ -87,108 +87,71 @@
     <header>
         <table class="borde">
             <tr>
-                <th class="centrar"><img src="{{ asset('img/LogoSenaNegro.png') }}" width="120px"
-                        height="60px"></th>
-                <th style="border: 1px solid #E3E3E3;" class="centrar" rowspan="2">
-                    FORMATO LEGALIZACION DE ANTICIPO (PRESUPUESTO)
+                <th class="centrar"></th>
+                <th style="border: 1px solid #E3E3E3;" class="body" rowspan="2">
+                    REPORTE DE INVENTARIO SENA
                     <br>
-                    Radicado: 
                 </th>
-                <th class="centrar"><img src="{{ asset('img/LogoSenaNegro.png') }}" width="120px"
-                        height="60px"></th>
+                <!-- <th class="centrar"></th> -->
             </tr>
             <tr>
-                <th style="border: 1px solid #E3E3E3;" class="centrar">CÓDIGO:GFI-FO-17</th>
-                <th style="border: 1px solid #E3E3E3;" class="centrar">VERSIÓN:2</th>
+                <th style="border: 1px solid #E3E3E3;" class="body">CÓDIGO:GFI-FO-17</th>
+                <th style="border: 1px solid #E3E3E3;" class="body">VERSIÓN:2</th>
             </tr>
         </table>
     </header>
 
     <body>
 
-        <table class="borde">
+       <b><table class="borde">
             <tbody>
                 <tr>
-                    <td colspan="4" style="border: 1px solid #ffffff;"  width="70%" class="titulo">RADICADO DEL FORMATO QUE SE VA A LEGALIZAR:</td>
-                    <td style="border: 1px solid #ffffff;"  class="body"><b></b></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ffffff;"  class="titulo">FECHA:</td>
-                    <td style="border: 1px solid #ffffff;"  class="body"><b></b></td>
-                    <td rowspan="2" style="border: 1px solid #ffffff;"  class="titulo">COMPROBANTE DE EGRESO</td>
-                    <td style="border: 1px solid #ffffff;"  class="titulo">No.</td>
-                    <td style="border: 1px solid #ffffff;"  class="body"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ffffff;"  class="titulo">HORA:</td>
-                    <td style="border: 1px solid #ffffff;"  class="body"><b></b></td>
-                    <td style="border: 1px solid #ffffff;"  class="titulo">VALOR:</td>
-                    <td style="border: 1px solid #ffffff;"  class="body"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ffffff;"  class="titulo">DEPENDENCIA:</td>
-                    <td style="border: 1px solid #ffffff;"  class="body">{</td>
-                    <td style="border: 1px solid #ffffff;"  class="titulo">ACTIVIDAD</td>
-                    <td colspan="2" style="border: 1px solid #ffffff;"  class="body"></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <table class="borde">
-            <tbody>
-                <tr>
-                    <td style="border: 2px solid #000000;"  class="titulo">NIT/CC</td>
-                    <td style="border: 2px solid #000000;"  class="titulo">RAZÓN SOCIAL</td>
-                    <td style="border: 2px solid #000000;"  class="titulo">CONCEPTO</td>
-                    <td style="border: 2px solid #000000;"  class="titulo">FACTURA</td>
-                    <td style="border: 2px solid #000000;"   width="12%" class="titulo">FECHA</td>
-                    <td style="border: 2px solid #000000;"  class="titulo">VALOR($)</td>
-                    <td style="border: 2px solid #000000;"  class="titulo">RETENCIÓN($)</td>
+                    <td  style="border: 1px solid #ffffff;"  class="body">AMBIENTE</td>
+                    <td style="border: 1px solid #ffffff;"  class="body"><b>TELEINFORMATICA</b></td>
                 </tr>
                 
                 <tr>
-                    <td style="border: 2px solid #000000;"  class="body1"></td>
-                    <td style="border: 2px solid #000000;"  class="body1"></td>
-                    <td style="border: 2px solid #000000;"  class="body1"></td>
-                    <td style="border: 2px solid #000000;"  class="body1"></td>
-                    <td style="border: 2px solid #000000;"  class="body1"></td>
-                    <td style="border: 2px solid #000000;"  class="body1"></td>
-                    <td style="border: 2px solid #000000;"  class="body1"></td>
+                    <td style="border: 1px solid #ffffff;"  class="body">RESPONSABLE:</td>
+                    <td style="border: 1px solid #ffffff;"  class="body"><b>YOSETH WILLIAM MATEUS</b></td>
+                    
                 </tr>
                 <tr>
-                    <td style="border: 2px solid #000000;"  class="titulo1">TOTAL:</td>
-                    <td colspan="4" style="border: 2px solid #000000;"  class="body1"></td>
-                    <td style="border: 2px solid #000000;"  class="body1"></td>
-                    <td style="border: 2px solid #000000;"  class="body1"></td>
+                    <td style="border: 1px solid #ffffff;"  class="body">FECHA:</td>
+                    <td style="border: 1px solid #ffffff;"  class="body"><b></b></td>
+                    
                 </tr>
+                <tr>
+                    <td style="border: 1px solid #ffffff;"  class="body">HORA:</td>
+                    <td style="border: 1px solid #ffffff;"  class="body"><b></b></td>
+                    
+                </tr>
+                
             </tbody>
         </table>
 
         <table class="borde">
             <tbody>
-                <tr>
-                    <td style="border: 1px solid #ffffff;" width="50%" class="titulo">VALOR ANTICIPO($)</td>
-                    <td style="border: 1px solid #ffffff;"  class="body"></td>
+            <tr>
+                    <td colspan="2" style="border: 2px solid #000000;"  class="body">INVENTARIO</td>
+                    
+                    
                 </tr>
                 <tr>
-                    <td style="border: 1px solid #ffffff;"  class="titulo">VALOR DE LA LEGALIZACIÓN($)</td>
-                    <td style="border: 1px solid #ffffff;"  class="body"></td>
+                    <td style="border: 2px solid #000000;"  class="body">Elemento</td>
+                    <td style="border: 2px solid #000000;"  class="body">Cantidad</td>
+                    
                 </tr>
                 <tr>
-                    <td style="border: 1px solid #ffffff;"  class="titulo">VALOR A REINTEGRAR RETENCIONES($)</td>
-                    <td style="border: 1px solid #ffffff;"  class="body"></td>
+                    <td style="border: 2px solid #000000;"  class="body">TV</td>
+                    <td style="border: 2px solid #000000;"  class="body">1</td>
+                    
                 </tr>
-                <tr>
-                    <td style="border: 1px solid #ffffff;"  class="titulo">VALOR POR REINTEGRAR A LA CRUZ ROJA($)</td>
-                    <td style="border: 1px solid #ffffff;"  class="body"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ffffff;"  class="titulo">RESPONSABLE DEL ANTICIPO:</td>
-                    <td style="border: 1px solid #ffffff;"  class="body"></td>
-                </tr>
+                
+                
             </tbody>
         </table>
 
+</b> 
         
 
     </body>
