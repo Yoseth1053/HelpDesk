@@ -50,13 +50,18 @@ class IncidenteController extends Controller
      */
     public function store(Request $request)
     {
+
+        Mail::to('ywmateus@misena.edu.co')->send(new Incidentes());
+
+
+
         // $data = [];
         // $emailPara = 'ywmateus@misena.edu.co';
         // $emailde = 'ywmateus@misena.edu.co';
         // $emailNombre = 'Ejemeplo';
 
 
-        // Mail::to('yoseth.m97@gmail.com')->send(new Incidentes());
+        
         // Mail::send('mail.incidentes',$data,function($message) use ($emailPara,$emailNombre,$emailde){
 
         //     $message->subject($emailNombre); 
@@ -65,6 +70,7 @@ class IncidenteController extends Controller
         // });
 
         // dd('exito');
+
         $incidente = new Incidente();
         $incidente->fecha = $request->fecha;
         $incidente->hora = $request->hora;
