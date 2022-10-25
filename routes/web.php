@@ -28,6 +28,7 @@ Route::get('/', function () {
 
 Route::get('consulta', [App\Http\Controllers\IncidenteController::class,'consulta'])->name('consulta');
 Route::get('procesarConsul', [App\Http\Controllers\IncidenteController::class,'procesar'])->name('procesarConsul');
+Route::get('welcome', [App\Http\Controllers\AuthController::class,'welcome'])->name('welcome');
 // Route::post('registrar', [App\Http\Controllers\IncidenteController::class,'store'])->name('procesarConsul');
 Route::resource('auth', AuthController::class);
 

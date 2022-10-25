@@ -25,6 +25,7 @@
 <script src="{{ asset('js/scripts.js') }}"></script>
 <script src="{{ asset('js/dataTable.js') }}"></script>
 <script src="{{ asset('js/verificPassword.js') }}"></script>
+<script src="{{ asset('js/inputFile.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 <script src="assets/demo/chart-area-demo.js"></script>
 <script src="assets/demo/chart-bar-demo.js"></script>

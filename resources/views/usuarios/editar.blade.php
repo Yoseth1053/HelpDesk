@@ -29,7 +29,12 @@
                     <a class="navbar-brand ps-3"><img style="align-items: center;" src="{{ asset('img/usuarios/sinFoto.jpg') }}" width="120" height="120">
                     </a>
                 @endif
+
+                <div class="file-select" id="src-file1">
                 <input type="file" name="adjunto[]" value="" multiple>
+                {{-- <input type="file" name="imagen5" aria-label="Archivo"> --}}
+              </div>
+
               </div>
             </div>
 
@@ -101,21 +106,28 @@
               </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-3" id="contra" style="display: none">
               <div class="form-group " style="text-align: center;">
                 <label for=""><b>Contraseña </b> </label>
                 <input type="password" class="form-control" rows="3" id="password" name="password" >
               </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-3" id="confirm" style="display: none">
               <div class="form-group " style="text-align: center;">
                 <label for=""><b>Confirmar Contraseña </b></label>
                 <input type="password" class="form-control" rows="3" id="passwordConfirm" name="passwordConfirm" >
               </div>
             </div>
 
+           
+
           </div>
+          <div class="row" style="justify-content: center;">
+            <div class="col-3">
+                <a  class="btn btn-primary" id="mostrarContra" style="display: block"><i class="fas fa-key"></i> <b>Editar Contraseña</b></a>
+          </div>
+         </div>
 
 
           <hr>
@@ -138,4 +150,11 @@
   </div>
 </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $('#mostrarContra').click(function() {
+        $('#contra').toggle(300);
+        $('#confirm').toggle();
+    });
+</script>
 @include('layouts.footer')

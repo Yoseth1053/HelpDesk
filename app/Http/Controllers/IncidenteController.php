@@ -51,7 +51,7 @@ class IncidenteController extends Controller
     public function store(Request $request)
     {
 
-        Mail::to('ywmateus@misena.edu.co')->send(new Incidentes());
+        
 
 
 
@@ -70,6 +70,7 @@ class IncidenteController extends Controller
         // });
 
         // dd('exito');
+        
 
         $incidente = new Incidente();
         $incidente->fecha = $request->fecha;
@@ -81,9 +82,20 @@ class IncidenteController extends Controller
         // $input = $request->all();
         // $incidente->fill($input);
         $incidente->save();
+
+
+        $data = ['reporta' => Auth::user()->nombres.' '.Auth::user()->apellidos,
+                  'fecha' => $request->fecha,
+                  'hora' => $request->hora,
+                  'ambiente' => Ambiente::where('id',$request->ambiente)->pluck('nombre')->first(),
+                  'descripcion' => $request->descripcion,
+                  'ticket' => $incidente->id,
+                ];
+
+        Mail::to('ywmateus@misena.edu.co')->send(new Incidentes($data));
         alert()->success('Exito','Su Numero de ticket para consulta es: '.$incidente->id);
 
-
+       
         if(Auth::user()->idCargo == 1){
             return Redirect::route("incidentes.index");//
         }

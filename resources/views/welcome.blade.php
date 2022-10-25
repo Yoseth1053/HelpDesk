@@ -42,7 +42,7 @@
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                 <img src="{{ asset('img/logo.png') }}" width="200" height="120">
                 <!-- <h1 style="color: black;"><b>Mesa de ayuda SENA</b> </h1> -->
-                <img src="{{ asset('img/LogoSenaNegro.png') }}" width="120" height="100">
+                {{-- <img src="{{ asset('img/LogoSenaNegro.png') }}" width="120" height="100"> --}}
 
                     <!-- <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20"> -->
                         <g clip-path="url(#clip0)" fill="#EF3B2D">
@@ -63,7 +63,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                   En esta opcion podremos consultar el estado de nuestras incidencias reportadas.
+                                   {{-- En esta opcion podremos consultar el estado de nuestras incidencias reportadas. --}}
                                 </div>
                             </div>
                         </div>

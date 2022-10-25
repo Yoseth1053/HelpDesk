@@ -31,6 +31,11 @@ class AuthController extends Controller
         //
     }
 
+    public function welcome()
+    {
+        return view('welcome');//
+    }
+
     /**
      * Store a newly created resource in storage.
      *

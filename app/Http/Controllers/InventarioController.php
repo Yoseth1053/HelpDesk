@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Inventario;
 use App\Models\Ambiente;
 use App\Models\Elemento;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Termwind\Components\Dd;
@@ -118,9 +119,12 @@ class InventarioController extends Controller
     {
         $ambiente = Ambiente::find($request->ambiente);
         $inventarios = Inventario::where('ambiente_id',$ambiente->id)->get();
+        $fecha =Carbon::now()->format('Y-m-d');
+        $hora = Carbon::now()->format('H:i:s');
 
         view()->share('inventarios',$inventarios);
-        $pdf = PDF::LoadView('pdf.ReporteInventario',['inventarios' => $inventarios,'ambiente' => $ambiente]);
+        $pdf = PDF::LoadView('pdf.ReporteInventario',['inventarios' => $inventarios
+        ,'ambiente' => $ambiente, 'fecha' => $fecha, 'hora' => $hora,]);
         return $pdf->stream('Reporte Inventario.pdf');
     }
 }

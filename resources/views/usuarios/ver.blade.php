@@ -45,8 +45,20 @@
             </thead>
             <tbody class="text-center">
                 <td>{{$usuario->nombres}}</td>
-                <td>{{$usuario->apellidos}}</td>
-                <td>{{$usuario->documento}}</td>
+
+                @if ($usuario->apellidos != null)
+                  <td>{{$usuario->apellidos}}</td>
+                @else
+                  <td style="color: #BC2B2B"><b>No Disponible</b></td>
+                @endif
+                
+                @if ($usuario->documento != null)
+                  <td>{{$usuario->documento}}</td>
+                @else
+                  <td style="color: #BC2B2B"><b>No Disponible</b></td>
+                @endif
+
+                {{-- <td>{{$usuario->documento}}</td> --}}
                 <td>{{$usuario->email}}</td>
 
 
@@ -63,8 +75,18 @@
                 </tr>
             </thead>
             <tbody class="text-center">
-                <td>{{$usuario->direccion}}</td>
-                <td>{{$usuario->telefono}}</td>
+                @if ($usuario->direccion != null)
+                  <td>{{$usuario->direccion}}</td>
+                @else
+                  <td style="color: #BC2B2B"><b>No Disponible</b></td>
+                @endif
+
+                @if ($usuario->telefono != null)
+                  <td>{{$usuario->telefono}}</td>
+                @else
+                  <td style="color: #BC2B2B"><b>No Disponible</b></td>
+                @endif
+
                 <td>{{$cargo}}</td>
                 @if($usuario->estado == 1)
                 <td style="color: green;"><b>Activo</b> </td>
