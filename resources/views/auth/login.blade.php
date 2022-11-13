@@ -1,4 +1,7 @@
 
+<html>
+  
+
 <title>Login</title>
 <link rel="icon" type="image/png" href="{{ asset('img/LogoSenaBlanco.png') }}">
 <header>
@@ -9,6 +12,9 @@
 <main>
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 </main>
+<body style="background-color: #D1D5D5 ;">
+  
+
 <x-guest-layout>
 <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -37,7 +43,7 @@
   </p>
 </form>
 </x-guest-layout> 
+</body>
 
-
-
+</html>
 

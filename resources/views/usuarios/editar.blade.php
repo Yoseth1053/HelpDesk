@@ -125,7 +125,7 @@
           </div>
           <div class="row" style="justify-content: center;">
             <div class="col-3">
-                <a  class="btn btn-primary" id="mostrarContra" style="display: block"><i class="fas fa-key"></i> <b>Editar Contraseña</b></a>
+                <a  class="btn " id="mostrarContra" style="background-color:#33A2C5; color:white; display: block"><i class="fas fa-key"></i> <b>Editar Contraseña</b></a>
           </div>
          </div>
 

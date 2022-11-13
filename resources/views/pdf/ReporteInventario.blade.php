@@ -116,7 +116,7 @@
 
                     <tr>
                         <td style="border: 1px solid #ffffff;" class="titulo">RESPONSABLE:</td>
-                        <td style="border: 1px solid #ffffff;" class="titulo"><b>{{strtoupper(Auth::user()->nombres.Auth::user()->apellidos)}}</b></td>
+                        <td style="border: 1px solid #ffffff;" class="titulo"><b>{{strtoupper(Auth::user()->nombres.' '.Auth::user()->apellidos)}}</b></td>
                     </tr>
                     <tr>
                         <td style="border: 1px solid #ffffff;" class="titulo">FECHA:</td>

@@ -1,35 +1,36 @@
 .file-select {
     position: relative;
     display: inline-block;
-  }
-  
-  .file-select::before {
-    background-color: #086db1;
+}
+
+.file-select::before {
+    background-color: #33A2C5;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    content: 'Seleccionar'; /* testo por defecto */
+    content: 'Seleccionar';
+    /* testo por defecto */
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-  }
-  
-  .file-select input[type="file"] {
+}
+
+.file-select input[type="file"] {
     opacity: 0;
     width: 200px;
     height: 32px;
     display: inline-block;
-  }
-  
-  :root {
+}
+
+ :root {
     --fn: 'Adjuntar Imagen';
-    }
-    
-    .file-select::before {
+}
+
+.file-select::before {
     white-space: nowrap;
     content: var(--fn);
-    }
+}

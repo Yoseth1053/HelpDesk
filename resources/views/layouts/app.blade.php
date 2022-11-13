@@ -94,81 +94,59 @@
                             <div class="sb-sidenav-menu-heading">Parametros</div>
 
                             <!-- Ambientes -->
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collAmbiente" aria-expanded="false" aria-controls="collAmbiente">
+                            <a class="nav-link collapsed" href="{{ route('ambientes.index') }}" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-landmark" style="color:#188755;" ></i></i></div>
                                 Ambientes
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow"></div>
                             </a>
-                            <div class="collapse" id="collAmbiente" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('ambientes.index') }}">Gestionar Ambientes</a>
-                                </nav>
-                            </div>
+                           
 
                             <!-- Elementos -->
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collElemento" aria-expanded="false" aria-controls="collElemento">
+                            <a class="nav-link collapsed" href="{{ route('elementos.index') }}" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-laptop-house" style="color:#095F71;"></i></div>
                                 Elementos
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow"></div>
                             </a>
-                            <div class="collapse" id="collElemento" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="{{ route('elementos.index') }}">Gestionar Elementos</a>
-                                </nav>
-                            </div>
+                            
 
                             <!-- Elementos -->
 
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collEstados" aria-expanded="false" aria-controls="collEstados">
+                            <a class="nav-link collapsed" href="{{ route('estados.index') }}" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-swatchbook" style="color:#095F71;"></i></div>
                                 Estados 
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow"></div>
                             </a>
-                            <div class="collapse" id="collEstados" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                   <a class="nav-link" href="{{ route('estados.index') }}">Gestionar Estados</a>
-                                </nav>
-                            </div>
+                            
                             @endif
                             <!-- Modulos -->
                             <div class="sb-sidenav-menu-heading">Modulos</div>
 
                             <!-- Incidentes -->
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collIncidentes" aria-expanded="false" aria-controls="collIncidentes">
+                            @if(Auth::user()->idCargo == 1)
+                            <a class="nav-link collapsed" href="{{ route('incidentes.index') }}" >
                                 <div class="sb-nav-link-icon"><i class="fa fa-check-square-o" style="color:#E8700B;" ></i></div>
                                 Incidentes
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow"></div>
                             </a>
-                            @if(Auth::user()->idCargo == 1)
-                            <div class="collapse" id="collIncidentes" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                   <a class="nav-link" href="{{ route('incidentes.index') }}">Gestionar Incidentes</a>
-                                </nav>
-                            </div>
 
                             @else
-                            <div class="collapse" id="collIncidentes" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                   <a class="nav-link" href="{{ route('incidentes.create') }}">Reportar Incidentes</a>
-                                </nav>
-                            </div>
+                            <a class="nav-link collapsed" href="{{ route('incidentes.create') }}" >
+                                <div class="sb-nav-link-icon"><i class="fa fa-check-square-o" style="color:#E8700B;" ></i></div>
+                                Incidentes
+                                <div class="sb-sidenav-collapse-arrow"></i></div>
+                            </a>
+                           
                             @endif
 
 
-                            
-
                             @if(Auth::user()->idCargo == 1)
                             <!-- Inventario -->
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collInventario" aria-expanded="false" aria-controls="collInventario">
+                            <a class="nav-link collapsed" href="{{ route('inventarios.index') }}" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-file-alt" style="color:#095F71;" ></i></div>
                                 Inventario
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow"></div>
                             </a>
-                            <div class="collapse" id="collInventario" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link" href="{{ route('inventarios.index') }}">Gestionar Inventarios</a>
-                                </nav>
-                            </div>
+                            
                             @endif
                         </div>
                     </div>
