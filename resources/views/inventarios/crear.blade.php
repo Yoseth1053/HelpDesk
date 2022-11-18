@@ -60,8 +60,6 @@
 
                     </div>
 
-
-
                     <hr>
                     <br>
                     <div class="row" style="justify-content: center;">

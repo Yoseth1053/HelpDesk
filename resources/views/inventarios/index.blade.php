@@ -67,13 +67,13 @@
                 </tr>
             </tfoot>
             <tbody>
-                @foreach($ambientesInv as $inventario)
+                @foreach($ambientesInv as $amb)
                 <tr class="border-b" style="text-align: center;">
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {{$inventario->id}}
+                        {{$amb->id}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$inventario->nombre}}
+                        {{$amb->nombre}}
                     </td>
                     
 
@@ -81,10 +81,10 @@
                         <div class="dropdown">
                             <button type="submit" class="dropbtn"><i class="fas fa-list-alt"></i><b> Opciones</b></button>
                             <div class="dropdown-content">
-                                <a class="dropdown-item" href="{{route('inventarios.show',$inventario)}}" style="color:green"><i class="fas fa-binoculars" style="color:green"></i><b> Ver</b> </a>
-                                <a class="dropdown-item" href="{{route('inventarios.edit',$inventario)}}" style="color:#157ECE"><i class="fas fa-edit" style="color:#157ECE"></i><b> Editar</b></a>
+                                <a class="dropdown-item" href="{{route('inventarios.show',$amb->id)}}" style="color:green"><i class="fas fa-binoculars" style="color:green"></i><b> Ver</b> </a>
+                                <a class="dropdown-item" href="{{route('inventarios.edit',$amb->id)}}" style="color:#157ECE"><i class="fas fa-edit" style="color:#157ECE"></i><b> Editar</b></a>
                                
-                                <form action="{{route('eliminar',$inventario)}}" method="post" id="desactivar">
+                                <form action="{{route('eliminar',$amb->id)}}" method="post" id="desactivar">
                                 @csrf
                                    <button onclick="return confirm('Esta Seguro De Eliminar Este Registro ?')" type="submit" class="btn dropdown-item" style="color:#C21F1F; text-align: left;"><i class="fas fa-skull-crossbones" style="color:#C21F1F"></i><b> Eliminar</b></button>
                                 </form>

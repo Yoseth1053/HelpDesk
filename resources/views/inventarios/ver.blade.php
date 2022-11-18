@@ -16,25 +16,26 @@
             <table id="" class="table table-striped table-light" cellspacing="0" width="100%">
                 <thead class="thead-dark">
                     <tr style="background-color: aqua;">
-                        <th class="text-center">Id</th>
-                        <th class="text-center">Ambiente</th>
-                        <th class="text-center">Elemento</th>
-                        <th class="text-center">Cantidad</th>
-                        <th class="text-center">Estado</th>
+                        <th class="text-center" colspan="2">Ambiente</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                    <td>{{$inventario->id}}</td>
-                    <td>{{$inventario->elemento->nombre}}</td>
-                    <td>{{$inventario->ambiente->nombre}}</td>
-                    <td>{{$inventario->cantidad}}</td>
-                    @if($inventario->estado == 1)
-                    <td style="color: green;"><b>Activo</b> </td>
-                    @else
-                    <td style="color: #BC2B2B;"><b>Inactivo</b></td>
-                    @endif
-    
+                    <td colspan="2">{{$ambiente->nombre}}</td>
                 </tbody>
+            </table>
+            <table id="" class="table table-striped table-light" cellspacing="0" width="100%">
+                <thead class="thead-dark">
+                    <tr style="background-color: aqua;">
+                        <th class="text-center">Elemento</th>
+                        <th class="text-center">Cantidad</th>
+                    </tr>
+                </thead>
+                @foreach ($inventarios as $inventario)
+                <tbody class="text-center">
+                    <td>{{$inventario->elemento->nombre}}</td>
+                    <td>{{$inventario->cantidad}}</td>
+                </tbody>
+                @endforeach
             </table>
             <br>
     
@@ -44,7 +45,7 @@
                 </div>
 
                 <div class="col-3" style="text-align: center;">
-                <a href="{{ route('inventarios.edit', $inventario) }}" class="btn" style="background-color: #33A2C5; color:white;"> Actualizar</button> </a>
+                <a href="{{ route('inventarios.edit', $ambiente->id) }}" class="btn" style="background-color: #33A2C5; color:white;"> Actualizar</button> </a>
                 </div>
             </div>
             
