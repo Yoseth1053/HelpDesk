@@ -22,7 +22,17 @@ class InventarioController extends Controller
     {
         $inventarios = Inventario::all();
         $ambientes = Ambiente::all();
-        return view('inventarios.index', compact('inventarios','ambientes'));//
+        $ambientesInv = [];
+        foreach($ambientes as $ambiente)
+        {
+            $verificar = Inventario::where('ambiente_id',$ambiente->id)->first();
+            if($verificar != null)
+            {
+                $ambientesInv[] = $ambiente;
+            }
+
+        }
+        return view('inventarios.index', compact('inventarios','ambientes','ambientesInv'));//
     }
     /**
      * Show the form for creating a new resource.
@@ -45,11 +55,22 @@ class InventarioController extends Controller
      */
     public function store(Request $request)
     {
-        $inventario = new Inventario();
-        $inventario->cantidad = $request->cantidad;
-        $inventario->elemento_id = $request->elemento_id;
-        $inventario->ambiente_id = $request->ambiente_id;
-        $inventario->save();
+       
+        for($i = 0; $i < count($request->cantidad); $i++)
+        {
+            $elemento = 'elemento-'.$i;
+            if($request->$elemento != null)
+            { 
+                $inventario = new Inventario();
+                $inventario->cantidad = $request->cantidad[$i];
+                $inventario->elemento_id = $request->$elemento;
+                $inventario->ambiente_id = $request->ambiente_id;
+                $inventario->save();
+                // dd($request->$elemento,$request->cantidad[$i]);
+            }
+                
+        }
+        
         alert()->success('Exito','Inventario Creado Satisfactoriamente');
         return Redirect::route("inventarios.index");//
     }

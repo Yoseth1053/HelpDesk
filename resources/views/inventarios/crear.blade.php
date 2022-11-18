@@ -21,54 +21,67 @@
                                 <label for=""><b>Ambiente </b> </label>
                                 <select class="form-control" name="ambiente_id" id="ambiente_id">
                                     @foreach ($ambientes as $amb)
-                                        <option value="{{ $amb->id }}">{{ $amb->nombre }}</option>
+                                    <option value="{{ $amb->id }}">{{ $amb->nombre }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        
-                        <div class="col-3">
-                            <div class="form-group" style="text-align: center;">
-                                <label for=""><b>Elemento</b> </label>
-                                <select class="form-control" name="elemento_id" id="elemento_id">
+                    </div>
+                    <br>
+                    <div class="row" style="justify-content: center; text-align:center;">
+                        <div class="col-3" >
+                            <label for="" style="text-align: center;"><b>Incluir Elementos </b> </label>
+                        </div>
+                    </div>
+                    <div class="row" style="justify-content: center;">
+                        <!-- <div class="col-8"> -->
+                        <div class="col-8" style="overflow-y: auto; height :150px; width:50%;">
+                            <table class="table table-striped">
+                                <thead class="thead-gray">
+                                    <tr>
+                                        <th class="text-center">Nombre </th>
+                                        <th class="text-center">Incluir </th>
+                                        <th class="text-center">Cantidad </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     @foreach ($elementos as $elm)
-                                        <option value="{{ $elm->id }}">{{ $elm->nombre }}</option>
+                                    <tr>
+                                        <td class="text-center">{{ $elm->nombre }}</td>
+                                        @php $nameElemento = 'elemento-'.$elm->id-1 @endphp
+                                        <td class="text-center"><input type="checkbox" name="{{$nameElemento}}" value="{{ $elm->id }}"></td> 
+                                        <td class="text-center" style="width:100px"><input type="number" class="form-control" name="cantidad[]" value=""></td>
+                                    </tr>
                                     @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-
-
-                        <div class="col-3">
-                            <div class="form-group " style="text-align: center;">
-                                <label for=""><b>Cantidad </b> </label>
-                                <input type="number" class="form-control" rows="3" id="cantidad"
-                                    name="cantidad">
-                            </div>
-                        </div>
-
-
-                        <hr>
-                        <br>
-                        <div class="row" style="justify-content: center;">
-                            <div class="col-3" style="text-align: center;">
-                                <a href="{{ route('inventarios.index') }}"
-                                    style="background-color: #BC2B2B; color:white" class="btn"> Volver</button> </a>
-                            </div>
-
-                            <div class="col-3" style="text-align: center;">
-                                <a><button style="background-color:#33A2C5; color : white;" type="submit"
-                                        class="btn btn"> Guardar</button></a>
-                            </div>
+                                </tbody>
+                            </table>
+                            <!-- </div> -->
                         </div>
 
                     </div>
+
+
+
+                    <hr>
+                    <br>
+                    <div class="row" style="justify-content: center;">
+                        <div class="col-3" style="text-align: center;">
+                            <a href="{{ route('inventarios.index') }}" style="background-color: #BC2B2B; color:white" class="btn"> Volver</button> </a>
+                        </div>
+
+                        <div class="col-3" style="text-align: center;">
+                            <a><button style="background-color:#33A2C5; color : white;" type="submit" class="btn btn"> Guardar</button></a>
+                        </div>
+                    </div>
+
                 </div>
 
-            </form>
 
         </div>
+
+        </form>
+
     </div>
+</div>
 </div>
 @include('layouts.footer')

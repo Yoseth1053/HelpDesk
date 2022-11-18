@@ -48,8 +48,8 @@
                 <tr>
                     <th class="text-center">Id</th>
                     <th class="text-center">Ambiente</th>
-                    <th class="text-center">Elemento</th>
-                    <th class="text-center">Cantidad</th>
+                    <!-- <th class="text-center">Elemento</th> -->
+                    <!-- <th class="text-center">Cantidad</th> -->
 
                     <!-- <th>Estado</th> -->
                     <th class="text-center">Opciones</th>
@@ -59,29 +59,23 @@
                 <tr>
                     <th class="text-center">Id</th>
                     <th class="text-center">Ambiente</th>
-                    <th class="text-center">Elemento</th>
-                    <th class="text-center">Cantidad</th>
+                    <!-- <th class="text-center">Elemento</th> -->
+                    <!-- <th class="text-center">Cantidad</th> -->
 
                     <!-- <th>Estado</th> -->
                     <th class="text-center">Opciones</th>
                 </tr>
             </tfoot>
             <tbody>
-                @foreach($inventarios as $inventario)
+                @foreach($ambientesInv as $inventario)
                 <tr class="border-b" style="text-align: center;">
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {{$inventario->id}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$inventario->ambiente->nombre}}
+                        {{$inventario->nombre}}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$inventario->elemento->nombre}}
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$inventario->cantidad}}
-                    </td>
+                    
 
                     <td>
                         <div class="dropdown">

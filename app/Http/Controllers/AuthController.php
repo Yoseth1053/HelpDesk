@@ -50,6 +50,12 @@ class AuthController extends Controller
            if(count($verific) == 0)
            {
                $cargo = 1;
+               $admin = new Cargo();
+               $admin->nombre = 'Administrador';
+               $admin->descripcion = 'Cargo con todos los permisos';
+               $admin->estado = 1;
+               $admin->save();
+
            }
            else{
                $cargo = 2;
@@ -64,10 +70,11 @@ class AuthController extends Controller
            $usuario->save();
            alert()->success('Exito','Usuario Creado satisfactoriamente');
            return view('auth.login');//
+
         } 
         catch (Exception $e) 
         {
-            alert()->error('Error','El correo ingresado ya esta registrado');
+            alert()->error('Error','El correo ingresado ya esta registrado'.$e);
             return view('auth.register');//
         }
         
